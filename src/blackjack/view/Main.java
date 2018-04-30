@@ -8,6 +8,7 @@ import java.io.IOException;
 public class Main{
     public static void main(String[] args) throws IOException {
         //TESTE WEB GITHUB
+        //TESTE DESKTOP NETBEANS
         //Controller controller = new Controller();
         BlackJackController BJController = new BlackJackController();
         MenuController menuController = new MenuController();
