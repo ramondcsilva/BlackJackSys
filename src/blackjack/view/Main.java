@@ -7,14 +7,10 @@ import java.io.IOException;
 
 public class Main{
     public static void main(String[] args) throws IOException {
+
         //Controller controller = new Controller();
         BlackJackController BJController = new BlackJackController();
         MenuController menuController = new MenuController();
-        
-        int verificaBloco = 0;
-        int verificaFoliao = 0;
-        int verificaTransporte = 0;
-        int verificaFoliaoEmTransporte = 0;
         
         String menuEscolha;
         String menuOpcao;
@@ -22,23 +18,14 @@ public class Main{
         do{
             System.out.println("Escolha uma das opções:\n"
                             + "|1| - Listar Cartas\n"
-                            + "|2| - Cadastrar Bloco\n"
-                            + "|3| - Cadastrar Transporte\n"
-                            + "|4| - Cadastrar Foliao em Transporte\n"
-                            + "|5| - Obter Foliao\n"
-                            + "|6| - Obter Bloco\n"
-                            + "|7| - Obter Transporte\n"
-                            + "|8| - Listar Foliao\n"
-                            + "|9| - Listar Bloco\n"
-                            + "|10| - Listar Transporte\n"
-                            + "|11| - Sair\n");
+                            + "|2| - Listar Cartas - Ordenado\n"
+                            + "|3| - Iniciar Partida\n"
+                            + "|4| - Placar\n"
+                            + "|5| - Cadastro Jogador\n"
+                            + "|s| - Sair\n");
             System.out.println("O que deseja: "); 
             menuEscolha = menuOpcao = Console.readString();
                 
-            String cpf , rg, nome , idade ,opcao;
-            String saidaB, localB;
-            String saidaT, chegadaT, retornoT, capacidadeT, blocoT, valorT, tipo, localSaida, localRetorno, localChegada;
-            String idT;
             boolean verificaLimite, verificaNull;
             
             switch (menuOpcao){
@@ -47,7 +34,7 @@ public class Main{
                     BJController.imprime();
                     break;    
             }        
-        }while(menuEscolha.equals("1") || !menuOpcao.equals("11"));
+        }while(!menuOpcao.equals("s"));
     }
     
     public static boolean idadeLimit(String idade){
