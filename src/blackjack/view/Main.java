@@ -32,7 +32,7 @@ public class Main{
                 case "1":
                     BJController.adicionaCartas();
                     BJController.imprime();
-                    break;    
+                    break;
             }        
         }while(!menuOpcao.equals("s"));
     }
