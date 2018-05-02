@@ -3,6 +3,7 @@ package blackjack.model;
 import blackjack.util.LinkedList;
 import blackjack.util.Stack;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Baralho {
 
@@ -28,8 +29,9 @@ public class Baralho {
     /**
      * Preenche o baralho com as cartas 52 cartas padrão, seus numeros e naipes,
      * em ordem;
-     * 
-     * Presume que a lista de cartas está inicializada. (TODO: Adicionar possivel try)
+     *
+     * Presume que a lista de cartas está inicializada. (TODO: Adicionar
+     * possivel try)
      */
     public final void fillBaralho() {
         /*saltos de 13 em 13 para manter uma contagem ininterrupta*/
@@ -40,12 +42,42 @@ public class Baralho {
             }
         }
     }
-    
-    public Carta pickRandom(long seed){
+
+    /**
+     * Escolhe uma carta aleatória baseada no numero fornecido pelo parametro
+     * seed
+     *
+     * @param seed numero a semear o randomico
+     * @return uma carta aleatoria do baralho
+     */
+    public Carta pickRandom(long seed) {
         Random rand = new Random(seed);
         return (Carta) cartas.get(rand.nextInt(52));
     }
-    
-    
-}
 
+    /**
+     * Cria uma pilha com as cartas desse baralho embaralhadas, usa um método de
+     * geração de lista de numeros aleatórios com o intervalo de indice das
+     * cartas e troca as posicões das cartas baseando-se nessa sequencia de
+     * numeros, se a mesma semente for usada, a mesma sequencia de numeros
+     * acontecerá.
+     *
+     * @param seed semente geradora de sequencia
+     * @return pilha com cartas embaralhadas
+     */
+    public Stack stackRandom(long seed) {
+        int[] rand = ThreadLocalRandom.current().ints(52, 0, 52).toArray();
+        Carta[] arr = (Carta[]) cartas.toArray();
+        Stack ret = new Stack();
+        for (int i = 0; i < arr.length; i++) {
+            Carta aux = arr[i];
+            arr[i] = arr[rand[i]];
+            arr[rand[i]] = aux;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            ret.push(arr[i]);
+        }
+        return ret;
+    }
+
+}
