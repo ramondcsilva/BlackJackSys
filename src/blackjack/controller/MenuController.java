@@ -7,7 +7,11 @@ public class MenuController {
     
     private LinkedList jogadores;
     private int partida = 0;
-        
+
+    public MenuController() {
+        this.jogadores = new LinkedList();
+    }
+    
     public Jogador cadastrarJogador(String user, String password){
         Jogador player = new Jogador();
         player.setUser(user);

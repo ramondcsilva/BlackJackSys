@@ -9,7 +9,7 @@ public interface IList{
 
     public void addLast(Object o);
 
-    public Object remove(Object data);
+    public boolean remove(Object data);
 
     public Object get(int index);
 

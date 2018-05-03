@@ -1,17 +1,19 @@
 package blackjack.model;
 
+import blackjack.util.LinkedList;
+
 public class MaoDeCarta{
-    private Carta cartaNaMao;
+    private LinkedList artasNaMao;
 
-    public MaoDeCarta(Carta cartaNaMao){
-        this.cartaNaMao = cartaNaMao;
-    }
-    
-    public Carta getCartaNaMao(){
-        return cartaNaMao;
+    public MaoDeCarta(LinkedList artasNaMao) {
+        this.artasNaMao = artasNaMao;
     }
 
-    public void setCartaNaMao(Carta cartaNaMao){
-        this.cartaNaMao = cartaNaMao;
+    public LinkedList getArtasNaMao() {
+        return artasNaMao;
+    }
+
+    public void setArtasNaMao(LinkedList artasNaMao) {
+        this.artasNaMao = artasNaMao;
     }
 }
