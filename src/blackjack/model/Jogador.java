@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Jogador{
     private String user;
     private String password;
-    private MaoDeCarta cartaAtual;
+    private MaoDeCarta MaoAtual;
     private int totalDaMao;
     private int pontuacao;
     private int partidasVencidas;
@@ -26,12 +26,12 @@ public class Jogador{
         this.password = password;
     }
 
-    public MaoDeCarta getCartaAtual() {
-        return cartaAtual;
+    public MaoDeCarta getMaoAtual() {
+        return MaoAtual;
     }
 
-    public void setCartaAtual(MaoDeCarta cartaAtual) {
-        this.cartaAtual = cartaAtual;
+    public void setMaoAtual(MaoDeCarta MaoAtual) {
+        this.MaoAtual = MaoAtual;
     }
 
     public int getTotalDaMao() {

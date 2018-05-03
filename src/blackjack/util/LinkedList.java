@@ -109,19 +109,18 @@ public class LinkedList implements IList{
     }
     
     @Override
-    public Object remove(Object data){
+    public boolean remove(Object data){
         if(!isEmpty()){
-            for(Node n = head; n != null; n = n.getNext()){
+            for(Node n = head; n.getNext() != null; n = n.getNext()){
                 Node prox = n.getNext();
-                if(prox.getData().equals(data)){
-                    Object temp = prox.getData();
+                if(data.equals(prox.getData())){
                     n.setNext(prox.getNext());
 
-                    return temp;
+                    return true;
                 }
             }
         }
-        return null;
+        return false;
     }
     
     @Override
