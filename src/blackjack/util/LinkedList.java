@@ -124,9 +124,6 @@ public class LinkedList implements IList{
         return null;
     }
     
-    
-    
-    
     @Override
     public Object get(int index){
         if(index >= 0 && index < size()){
