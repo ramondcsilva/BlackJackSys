@@ -130,8 +130,10 @@ public class LinkedList implements IList{
             for(int i = 0 ; i < index; i++){
                 aux = aux.getNext();
             }
-            Object data = aux.getData();
+            if(aux != null){
+                Object data = aux.getData();
             return data;
+            }
         }
         return null;
     }

@@ -1,10 +1,9 @@
 package blackjack.view;
 
+import blackjack.util.Console;
 import blackjack.controller.*;
 import blackjack.model.*;
-import blackjack.util.*;
 import java.io.IOException;
-
 
 public class Main{
     public static void main(String[] args) throws IOException {
@@ -15,60 +14,76 @@ public class Main{
         String menuEscolha;
         String menuOpcao;
         int verificaCadastro = 0;
+        BJController.adicionaCartas();
         
         System.out.println("Sistema BestFoliaSys");
         do{
-            System.out.println("Escolha uma das opções:\n"
+            System.out.println("\nEscolha uma das opções:\n"
                             + "|1| - Listar Cartas\n"
                             + "|2| - Listar Cartas - Ordenado\n"
                             + "|3| - Iniciar Partida\n"
                             + "|4| - Placar\n"
                             + "|5| - Cadastro Jogador\n"
                             + "|6| - Remover Jogador\n"
+                            + "|7| - Embaralhar\n"
                             + "|s| - Sair\n");
             System.out.println("O que deseja: "); 
-            menuEscolha = menuOpcao = Console.readString();
-            
+            menuOpcao = Console.readString();
+             
             String opcao, user, password;
             boolean verificaLimite, verificaNull;
             
             switch (menuOpcao){
                 case "1":
-                    BJController.adicionaCartas();
-                    BJController.imprime();
+                    BJController.verCartasRestantes();
+                    break;
+                case "2":
+                    BJController.verCartasRestantesOrdenadas();
+                    break;
+                case "3":
+                    Object f = BJController.novaJogada();
+                    
+                    System.out.println(f);
+                    break;
+                case "4":
+                    BJController.pararJogada();
                     break;
                 case "5":
                     do{
-                        System.out.println("Cadastrando Jogador\n");
-                        do{
-                            System.out.printf("Insira o user do Jogador: ");
-                            user = Console.readString();
-                            System.out.println("Esse é o user "+user+" ?\n"+"1 - Sim/2 - Nao: ");
-                            opcao = Console.readString();
-                            opcao = replaceOpcao(opcao);
-                            verificaLimite = stringIdeal(user,6,20);
-                            verificaNull = stringNull(user);
-                        }while(opcao.equals("")||verificaNull == false ||verificaLimite == false && (opcao.equals("1") ||  opcao.equals("2")) || verificaLimite == true && opcao.equals("2")); 
-                        do{
-                            System.out.printf("Insira password do Jogador: ");
-                            password = Console.readString();
-                            System.out.println("Esse é o password "+password+" ?\n"+"1 - Sim/2 - Nao: ");
-                            opcao = Console.readString();
-                            opcao = replaceOpcao(opcao);
-                            verificaLimite = stringIdeal(password,8,16);
-                            verificaNull = stringNull(password);
-                        }while(opcao.equals("")||verificaNull == false ||verificaLimite == false && (opcao.equals("1") ||  opcao.equals("2")) || verificaLimite == true && opcao.equals("2")); 
-                        
-                        Jogador jogadorCadastrado = menuController.cadastrarJogador(user, password);
-                        
-                        if(jogadorCadastrado == null){
-                            System.out.println("Erro Cadastro.");
+                        if(verificaCadastro < 5){    
+                            System.out.println("Cadastrando Jogador\n");
+                            do{
+                                System.out.printf("Insira o user do Jogador: ");
+                                user = Console.readString();
+                                System.out.println("Esse é o user "+user+" ?\n"+"1 - Sim/2 - Nao: ");
+                                opcao = Console.readString();
+                                opcao = replaceOpcao(opcao);
+                                verificaLimite = stringIdeal(user,6,20);
+                                verificaNull = stringNull(user);
+                            }while(opcao.equals("")||verificaNull == false ||verificaLimite == false && (opcao.equals("1") ||  opcao.equals("2")) || verificaLimite == true && opcao.equals("2")); 
+                            do{
+                                System.out.printf("Insira password do Jogador: ");
+                                password = Console.readString();
+                                System.out.println("Esse é o password "+password+" ?\n"+"1 - Sim/2 - Nao: ");
+                                opcao = Console.readString();
+                                opcao = replaceOpcao(opcao);
+                                verificaLimite = stringIdeal(password,8,16);
+                                verificaNull = stringNull(password);
+                            }while(opcao.equals("")||verificaNull == false ||verificaLimite == false && (opcao.equals("1") ||  opcao.equals("2")) || verificaLimite == true && opcao.equals("2")); 
+
+                            Jogador jogadorCadastrado = menuController.cadastrarJogador(user, password);
+                            if(jogadorCadastrado == null){
+                                System.out.println("Erro Cadastro.");
+                            }else{
+                                verificaCadastro++;
+                                System.out.println("Cadastro Concluido.");
+                            }
+                            System.out.println("Insira 1 ou 2 :\n1 - Menu\n2 - Novo Jogador\nOpcao: ");
+                            menuEscolha = Console.readString();
                         }else{
-                            verificaCadastro++;
-                            System.out.println("Cadastro Concluido.");
-                        }
-                        System.out.println("Insira 1 ou 2 :\n1 - Menu\n2 - Novo Jogador\nOpcao: ");
-                        menuEscolha = Console.readString();
+                            System.out.println("Maximo de cadastros (5) atingido.");
+                            menuEscolha = "1";
+                        }        
                     }while(!menuEscolha.equals("1"));
                     
                     break;
@@ -105,6 +120,9 @@ public class Main{
                     }else{
                         System.out.println("Sem jogador para remover.");
                     }
+                    break;
+                case "7":
+                        BJController.embaralha();
                     break;
             }        
         }while(!menuOpcao.equals("s"));

@@ -1,12 +1,13 @@
 package blackjack.controller;
 
+import blackjack.util.LinkedList;
+import blackjack.util.Iterator;
 import blackjack.model.*;
-import blackjack.util.*;
 
 public class MenuController {
     
-    private LinkedList jogadores;
-    private int partida = 0;
+    LinkedList jogadores;
+    BlackJackController controller = new BlackJackController();
 
     public MenuController() {
         this.jogadores = new LinkedList();
@@ -37,8 +38,12 @@ public class MenuController {
         return false;
     }
     
-    public void iniciarPartida(int quantidadeJogadores){
+    public void iniciarJogo(int quantidadeJogadores){
         
         
+    }
+
+    public LinkedList getJogadores() {
+        return jogadores;
     }
 }
