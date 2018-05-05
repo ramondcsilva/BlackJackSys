@@ -45,5 +45,6 @@ public class MaoDeCarta {
      */
     public void clearCartas() {
         while(cartas.toRemoveLast()!=null);
+
     }
 }

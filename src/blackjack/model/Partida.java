@@ -1,6 +1,7 @@
 package blackjack.model;
 
 import blackjack.util.LinkedList;
+
 import blackjack.util.Stack;
 
 public class Partida {
@@ -8,7 +9,45 @@ public class Partida {
     private Jogador[] jogador;
     private Stack monte;
     private Baralho baralho;
+    private int rodada;
+    private int ponto;
+    
+    public Partida() {
+    }
 
+    /**
+     * Instancia uma Partida com um monte composto de uma pilha embaralhada por
+     * um baralho externo bem como configura o baralho interno
+     *
+     * @param baralho o baralho a ser utilizado
+     */
+    public Partida(Baralho baralho) {
+        this.baralho = baralho;
+        this.monte = this.baralho.stackRandom(this.getClass().hashCode());
+    }
+  
+    public Partida(int rodada, int ponto, Jogador[] jogador) {
+        this.rodada = rodada;
+        this.ponto = ponto;
+        this.jogador = jogador;
+    }
+
+    public int getRodada() {
+        return rodada;
+    }
+
+    public void setRodada(int rodada) {
+        this.rodada = rodada;
+    }
+
+    public int getPonto() {
+        return ponto;
+    }
+
+    public void setPonto(int ponto) {
+        this.ponto = ponto;
+    }
+  
     /**
      * Get the value of baralho
      *
@@ -83,18 +122,6 @@ public class Partida {
         this.jogador[index] = jogador;
     }
 
-    public Partida() {
-    }
-
-    /**
-     * Instancia uma Partida com um monte composto de uma pilha embaralhada por
-     * um baralho externo bem como configura o baralho interno
-     *
-     * @param baralho o baralho a ser utilizado
-     */
-    public Partida(Baralho baralho) {
-        this.baralho = baralho;
-        this.monte = this.baralho.stackRandom(this.getClass().hashCode());
-    }
+   
 
 }
