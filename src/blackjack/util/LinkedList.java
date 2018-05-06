@@ -1,4 +1,4 @@
-package blackjack.util;
+package util;
 
 public class LinkedList implements IList{
     private Node head;
@@ -136,6 +136,23 @@ public class LinkedList implements IList{
             }
         }
         return null;
+    }
+    
+    /**
+     * Metodo para criar um array com os objetos atuais de uma lista.
+     * Cria um novo array com o tamanho da lista no momento da invocação desse método
+     * e referencia cada objeto da lista neste array recem criado.
+     * @return array de objetos da lista;
+     */
+    public Object[] toArray(){
+        Object[] ret = new Object[sizeList];
+        int i=0;
+        
+        for (Iterator it = iterator(); it.hasNext();) {
+            ret[i] = it.next();
+            i++;
+        }
+        return ret;
     }
 
     @Override

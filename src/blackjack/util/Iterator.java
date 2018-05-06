@@ -1,4 +1,4 @@
-package blackjack.util;
+package util;
 
 public interface Iterator{
 	

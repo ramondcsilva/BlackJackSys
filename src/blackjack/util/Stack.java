@@ -1,4 +1,4 @@
-package blackjack.util;
+package util;
 
 public class Stack implements IStack{
     private Node head;

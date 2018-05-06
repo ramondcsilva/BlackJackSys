@@ -1,8 +1,8 @@
-package blackjack.view;
+package view;
 
-import blackjack.util.Console;
-import blackjack.controller.*;
-import blackjack.model.*;
+import util.Console;
+import controller.*;
+import model.*;
 import java.io.IOException;
 
 public class Main{
@@ -15,7 +15,6 @@ public class Main{
         String menuOpcao;
         int verificaCadastro = 0;
         BJController.adicionaCartas();
-        
         System.out.println("Sistema BestFoliaSys");
         do{
             System.out.println("\nEscolha uma das opções:\n"
@@ -41,7 +40,7 @@ public class Main{
                     BJController.verCartasRestantesOrdenadas();
                     break;
                 case "3":
-                    Object f = BJController.novaJogada();
+                    Object f = BJController.pushCarta();
                     
                     System.out.println(f);
                     break;
@@ -122,7 +121,7 @@ public class Main{
                     }
                     break;
                 case "7":
-                        BJController.embaralha();
+                    BJController.embaralha();
                     break;
             }        
         }while(!menuOpcao.equals("s"));

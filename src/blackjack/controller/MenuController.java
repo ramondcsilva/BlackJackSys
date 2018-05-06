@@ -1,8 +1,8 @@
-package blackjack.controller;
+package controller;
 
-import blackjack.util.LinkedList;
-import blackjack.util.Iterator;
-import blackjack.model.*;
+import util.LinkedList;
+import util.Iterator;
+import model.*;
 
 public class MenuController {
     

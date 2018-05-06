@@ -1,4 +1,4 @@
-package blackjack.model;
+package model;
 
 public class Croupier extends Jogador{
     private Carta cartaDoTopo;

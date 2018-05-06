@@ -1,40 +1,28 @@
-package blackjack.model;
+package model;
 
-import java.util.Objects;
-
-public class Carta{
-    private String naipe;
-    private String numero;
-    private int id;
-
-    public Carta(String naipe, String numero) {
-        this.naipe = naipe;
-        this.numero = numero;
-        id = 0;
-    }
+public class Carta {
+    private int numero;
+    private int naipe;
     
-    public String getNumero() {
+    public Carta(int numero, int naipe) {
+        this.numero = numero;
+        this.naipe = naipe;
+    }
+
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    public String getNaipe() {
+    public int getNaipe() {
         return naipe;
     }
 
-    public void setNaipe(String naipe) {
+    public void setNaipe(int naipe) {
         this.naipe = naipe;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     @Override
@@ -49,13 +37,10 @@ public class Carta{
             return false;
         }
         final Carta other = (Carta) obj;
-        if (this.id != other.id) {
+        if (this.numero != other.numero) {
             return false;
         }
-        if (!Objects.equals(this.naipe, other.naipe)) {
-            return false;
-        }
-        if (!Objects.equals(this.numero, other.numero)) {
+        if (this.naipe != other.naipe) {
             return false;
         }
         return true;
@@ -63,6 +48,39 @@ public class Carta{
 
     @Override
     public String toString() {
-        return naipe+numero;
+        String naipes, numeros;
+        switch (this.naipe) {
+            case 0:
+                naipes = "♣";
+                break;
+            case 13:
+                naipes = "♦";
+                break;
+            case 26:
+                naipes = "♥";
+                break;
+            case 39:
+                naipes = "♠";
+                break;
+            default:
+                naipes = "";
+        }
+        switch (this.numero) {
+            case 1:
+                numeros = "A";
+                break;
+            case 11:
+                numeros = "J";
+                break;
+            case 12:
+                numeros = "Q";
+                break;
+            case 13:
+                numeros = "K";
+                break;
+            default:
+                numeros = Integer.toString(this.numero);
+        }
+        return numeros+naipes;
     }
 }
