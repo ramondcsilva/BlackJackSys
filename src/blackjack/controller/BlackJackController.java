@@ -1,5 +1,4 @@
-/*
- *  ******************************************************************************
+/*  ******************************************************************************
  *  Autor: Sergio e Ramon
  *  Componente curricular: Módulo Integrador de Programação
  *  Concluido em: 
@@ -9,8 +8,7 @@
  *  Qualquer trecho de código de outra autoria que não a minha está destacado com
  *  uma citação para o autor e a fonte do código, e estou ciente que estes trechos
  *  não serão considerados para fins de avaliação.
- *  ******************************************************************************
- */
+ *  ******************************************************************************/
 package blackjack.controller;
 
 import blackjack.util.*;
