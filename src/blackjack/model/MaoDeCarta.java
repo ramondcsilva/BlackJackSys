@@ -3,7 +3,6 @@ package model;
 import util.LinkedList;
 
 public class MaoDeCarta {
-
     private LinkedList cartas;
 
     public MaoDeCarta(LinkedList cartaNaMao) {

@@ -1,11 +1,8 @@
 package model;
 
 public class Carta {
-
-    
     private int numero;
     private int naipe;
-    
 
     public Carta(int numero, int naipe) {
         this.numero = numero;

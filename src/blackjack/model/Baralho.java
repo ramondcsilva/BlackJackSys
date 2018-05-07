@@ -5,7 +5,6 @@ import util.Stack;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Baralho {
-
     private LinkedList cartas;
 
     public Baralho(LinkedList cartas) {

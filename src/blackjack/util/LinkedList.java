@@ -26,6 +26,7 @@ public class LinkedList implements IList{
         }
     }
     
+    @Override
     public boolean contains(Object data){
        for(Node n = head;n != null; n = n.getNext()){
            if(n.getData() != null && n.getData().equals(data)){
@@ -70,7 +71,8 @@ public class LinkedList implements IList{
         }
         sizeList++;
     }
-
+    
+    @Override
     public Object toRemoveStart(){
         if(isEmpty()){
             return null;
@@ -82,7 +84,8 @@ public class LinkedList implements IList{
         return n.getData();
         }
     }
-
+    
+    @Override
     public Object toRemoveLast(){   
         Node aux;
         aux = head;
@@ -144,6 +147,7 @@ public class LinkedList implements IList{
      * e referencia cada objeto da lista neste array recem criado.
      * @return array de objetos da lista;
      */
+    @Override
     public Object[] toArray(){
         Object[] ret = new Object[sizeList];
         int i=0;

@@ -34,15 +34,17 @@ public class Main{
             
             switch (menuOpcao){
                 case "1":
+                    BJController.embaralha();
                     BJController.verCartasRestantes();
                     break;
                 case "2":
                     BJController.verCartasRestantesOrdenadas();
                     break;
                 case "3":
-                    Object f = BJController.pushCarta();
-                    
-                    System.out.println(f);
+                    Croupier c = new Croupier();
+                    Carta f = (Carta)BJController.pushCarta();
+                    c.setCartaDoTopo(f);
+                    System.out.println(c.getCartaDoTopo());
                     break;
                 case "4":
                     BJController.pararJogada();
