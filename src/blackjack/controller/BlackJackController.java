@@ -60,6 +60,7 @@ public class BlackJackController {
         }
         baralho = embaralhamento;
     }
+    
     public void verCartasRestantes() {
         Iterator iterator = baralho.iterator();
         int i = 0;
