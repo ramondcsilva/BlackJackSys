@@ -23,11 +23,10 @@ public class BlackJackController {
     Stack resto;
 
     public BlackJackController() {
-        this.cartas = new Baralho(baralho);
         this.baralho = new LinkedList();
+        this.cartas = new Baralho(baralho);
         this.resto = new Stack();
     }
-
 
     public Object novaJogada() {
         Object carta = baralho.toRemoveStart();
@@ -49,6 +48,11 @@ public class BlackJackController {
         baralho = cartas.getCartas();
     }
 
+
+    public void embaralha() {
+        baralho = cartas.listRandom();
+    }
+  
     public void embaralhamento(){
         LinkedList embaralhamento = new LinkedList();
         while(embaralhamento.size() < 52){
@@ -60,6 +64,7 @@ public class BlackJackController {
         }
         baralho = embaralhamento;
     }
+      
     public void verCartasRestantes() {
         Iterator iterator = baralho.iterator();
         int i = 0;
@@ -151,7 +156,7 @@ public class BlackJackController {
                 System.out.println();
             }
             i--;
-        }  
+        }
         Carta rand = cartas.pickRandom();
         System.out.println("Randomica: " + rand.toString());
     }
