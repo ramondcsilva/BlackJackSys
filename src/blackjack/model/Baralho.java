@@ -44,16 +44,15 @@ public class Baralho {
         }
     }
     /**
-     * Escolhe uma carta aleatória baseada no numero fornecido pelo parametro
-     * seed
-     * @param seed numero a semear o randomico
+     * Escolhe uma carta aleatória baseada no numero fornecido pela ThreadLocalRandom
+     * que gera uma série de numeros aleatórios a partir de valores internos da Thread
+     * 
      * @return uma carta aleatoria do baralho
      */
 
 
-    public Carta pickRandom(long seed) {
-        Random rand = new Random(seed);
-        return (Carta) cartas.get(rand.nextInt(52));
+    public Carta pickRandom() {
+        return (Carta) cartas.get(ThreadLocalRandom.current().nextInt(52));
     }
 
     /**

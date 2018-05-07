@@ -158,7 +158,7 @@ public class BlackJackController {
             }
             i--;
         }  
-        Carta rand = cartas.pickRandom(4);
+        Carta rand = cartas.pickRandom();
         System.out.println("Randomica: " + rand.toString());
     }
 }
