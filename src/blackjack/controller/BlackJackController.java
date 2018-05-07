@@ -77,7 +77,7 @@ public class BlackJackController {
         LinkedList ordenada = baralho;
         int[] array = new int[baralho.size()];
         int i = 0;
-
+        
         while (i < array.length) {
             Carta a = (Carta) ordenada.toRemoveStart();
             array[i++] = (a.getNaipe() + a.getNumero());
@@ -85,13 +85,9 @@ public class BlackJackController {
         }
         quickSort(array, 0, baralho.size() - 1);
         i = 0;
-        while (i < array.length - 1) {
-            Carta c = (Carta) baralho.get(array[i++]);
-            if (c.getNumero() == 1) {
-                System.out.println(c);
-            } else {
-                System.out.print(c);
-            }
+        while (i < array.length) {
+            resgataCarta(array[i],ordenada);
+            i++;
         }
     }
 
@@ -160,5 +156,21 @@ public class BlackJackController {
         }  
         Carta rand = cartas.pickRandom();
         System.out.println("Randomica: " + rand.toString());
+    }
+    
+    public Object resgataCarta(int i, LinkedList resgate){
+        Iterator iterator = resgate.iterator();
+        while (iterator.hasNext()) {
+            Carta z = (Carta) iterator.next();
+            if((z.getNaipe()+z.getNumero())== i){    
+                if ((z.getNumero() == 13)) {
+                    System.out.println(z);
+                } else {
+                    System.out.print(z);
+                }
+                return z;
+            }    
+        }
+        return null;
     }
 }

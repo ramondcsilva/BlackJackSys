@@ -132,7 +132,7 @@ public class LinkedList implements IList{
             }
             if(aux != null){
                 Object data = aux.getData();
-            return data;
+                return data;
             }
         }
         return null;
