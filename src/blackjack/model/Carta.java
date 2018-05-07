@@ -1,9 +1,11 @@
-package blackjack.model;
+package model;
 
 public class Carta {
 
+    
     private int numero;
     private int naipe;
+    
 
     public Carta(int numero, int naipe) {
         this.numero = numero;
@@ -49,39 +51,41 @@ public class Carta {
 
     @Override
     public String toString() {
-        String naipe, numero;
+
+        String naipes, numeros;
         switch (this.naipe) {
             case 0:
-                naipe = "♣";
+                naipes = "♣";
                 break;
             case 13:
-                naipe = "♦";
+                naipes = "♦";
                 break;
             case 26:
-                naipe = "♥";
+                naipes = "♥";
                 break;
             case 39:
-                naipe = "♠";
+                naipes = "♠";
                 break;
             default:
-                naipe = "";
+                naipes = "";
         }
         switch (this.numero) {
             case 1:
-                numero = "A";
+                numeros = "A";
                 break;
             case 11:
-                numero = "J";
+                numeros = "J";
                 break;
             case 12:
-                numero = "Q";
+                numeros = "Q";
                 break;
             case 13:
-                numero = "K";
+                numeros = "K";
                 break;
             default:
-                numero = Integer.toString(this.numero);
+                numeros = Integer.toString(this.numero);
         }
-        return numero+naipe;
+        return numeros+naipes;
     }
 }
+

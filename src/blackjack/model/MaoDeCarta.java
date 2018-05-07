@@ -1,6 +1,6 @@
-package blackjack.model;
+package model;
 
-import blackjack.util.LinkedList;
+import util.LinkedList;
 
 public class MaoDeCarta {
 
@@ -13,7 +13,6 @@ public class MaoDeCarta {
     /**
      * Entrega a lista de cartas na mão do jogador a quem a mão de cartas
      * pertence
-     *
      * @return LinkedList de cartas em mãos
      */
     public LinkedList getCartas() {
@@ -23,7 +22,6 @@ public class MaoDeCarta {
     /**
      * Configura a lista de cartas para a lista passada por parametro. Recebe e
      * armazena a referencia à lista passada no parametro da função;
-     *
      * @param cartas lista de cartas para a mão atual
      */
     public void setCartas(LinkedList cartas) {
@@ -33,7 +31,6 @@ public class MaoDeCarta {
     /**
      * Adiciona uma carta à lista de cartas da mão do jogador quando este
      * solicita uma nova carta, ou ao receber alguma;
-     *
      * @param carta a ser adicionada à mão
      */
     public void addCarta(Carta carta) {
@@ -44,7 +41,8 @@ public class MaoDeCarta {
      * Limpa a mão de cartas do jogador;
      */
     public void clearCartas() {
-        while(cartas.toRemoveLast()!=null);
-
+        while(cartas.toRemoveLast() != null);
     }
+
+
 }

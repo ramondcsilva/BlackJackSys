@@ -1,6 +1,5 @@
-/*
- *  ******************************************************************************
- *  Autor: 
+/*  ******************************************************************************
+ *  Autor: Sergio e Ramon
  *  Componente curricular: Módulo Integrador de Programação
  *  Concluido em: 
  *  Declaro que este código foi elaborado por mim de forma individual e não contém
@@ -9,41 +8,40 @@
  *  Qualquer trecho de código de outra autoria que não a minha está destacado com
  *  uma citação para o autor e a fonte do código, e estou ciente que estes trechos
  *  não serão considerados para fins de avaliação.
- *  ******************************************************************************
- */
-package blackjack.controller;
+ *  ******************************************************************************/
+package controller;
 
-import blackjack.model.*;
-import blackjack.util.*;
+import util.Iterator;
+import util.Stack;
+import util.LinkedList;
+import model.*;
 
 public class BlackJackController {
 
     Baralho cartas;
     LinkedList baralho;
+    Stack resto;
 
     public BlackJackController() {
         this.cartas = new Baralho(baralho);
         this.baralho = new LinkedList();
+        this.resto = new Stack();
     }
 
-    public void novaJogada() {
 
+    public Object novaJogada() {
+        Object carta = cartas.getCartas().toRemoveStart();
+        resto.push(carta);
+        return carta;
     }
 
     public void pararJogada() {
-
-    }
-
-    public void verCartasRestantes() {
-
-    }
-
-    public void verCartasRestantesOrdenadas() {
-
-    }
-
-    public void placarGeral() {
-
+        if (!resto.isEmpty()) {
+            while (resto.size() > 0) {
+                Object n = resto.pop();
+                baralho.addLast(n);
+            }
+        }
     }
 
     public void adicionaCartas() {
@@ -51,15 +49,115 @@ public class BlackJackController {
         baralho = cartas.getCartas();
     }
 
+    public void embaralha() {
+        /*   Stack n = cartas.stackRandom(34534);
+       LinkedList l = new LinkedList();
+       while(!n.isEmpty()){
+           Object data = n.pop();
+           l.addStart(data);
+       }
+       
+       baralho = l;
+         */
+    }
+
+    public void verCartasRestantes() {
+        Iterator iterator = baralho.iterator();
+        while (iterator.hasNext()) {
+            Carta b = (Carta) iterator.next();
+            if ((b.getNumero() == 1)) {
+                System.out.println(b);
+            } else {
+                System.out.print(b);
+            }
+        }
+    }
+
+    public void verCartasRestantesOrdenadas() {
+        LinkedList ordenada = baralho;
+        int[] array = new int[baralho.size()];
+        int i = 0;
+
+        while (i < array.length) {
+            Carta a = (Carta) ordenada.toRemoveStart();
+            array[i++] = (a.getNaipe() + a.getNumero());
+            ordenada.addLast(a);
+        }
+        quickSort(array, 0, baralho.size() - 1);
+        i = 0;
+        while (i < array.length - 1) {
+            Carta c = (Carta) baralho.get(array[i++]);
+            if (c.getNumero() == 1) {
+                System.out.println(c);
+            } else {
+                System.out.print(c);
+            }
+        }
+    }
+
+    public void placarGeral(Jogador vencedor) {
+        int i = vencedor.getPontuacao();
+        vencedor.setPontuacao(i + 50);
+    }
+
+    public static void quickSort(int v[], int esquerda, int direita) {
+        int esq = esquerda;
+        int dir = direita;
+        int pivo = v[(esq + dir) / 2];
+        int troca;
+        while (esq <= dir) {
+            while (v[esq] < pivo) {
+                esq = esq + 1;
+            }
+            while (v[dir] > pivo) {
+                dir = dir - 1;
+            }
+            if (esq <= dir) {
+                troca = v[esq];
+                v[esq] = v[dir];
+                v[dir] = troca;
+                esq = esq + 1;
+                dir = dir - 1;
+            }
+        }
+        if (dir > esquerda) {
+            quickSort(v, esquerda, dir);
+        }
+        if (esq < direita) {
+            quickSort(v, esq, direita);
+        }
+    }
+
+    public LinkedList getBaralho() {
+        return baralho;
+    }
+
+    public Object pushCarta() {
+        Object carta = cartas.getCartas().toRemoveStart();
+        resto.push(carta);
+        return carta;
+    }
+
+    public void reiniciarBaralho(Stack n) {
+        if (!n.isEmpty()) {
+            while (n.size() > 0) {
+                Object m = n.pop();
+                baralho.addLast(m);
+            }
+        }
+    }
+
     public void imprime() {
         int i = 51;
+
         while (i >= 0) {
             Carta b = (Carta) cartas.getCartas().get(i);
             System.out.print(b.toString() + " ");
-            if ((i%13)==0)
+            if ((i % 13) == 0) {
                 System.out.println();
+            }
             i--;
-        }
+        }  
         Carta rand = cartas.pickRandom(4);
         System.out.println("Randomica: " + rand.toString());
     }

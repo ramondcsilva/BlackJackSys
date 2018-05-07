@@ -1,4 +1,4 @@
-package blackjack.util;
+package util;
 
 public class Stack implements IStack{
     private Node head;
@@ -30,6 +30,7 @@ public class Stack implements IStack{
         Node n = new Node(data);
         n.setNext(head);
         head = n;
+        size++;
     }
 
     @Override
@@ -39,6 +40,7 @@ public class Stack implements IStack{
         }
         Object data = head.getData();
         head = head.getNext();
+        size--;
         return data;
     }
 
