@@ -3,7 +3,6 @@ package model;
 
 import util.LinkedList;
 import util.Stack;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Baralho {
