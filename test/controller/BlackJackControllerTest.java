@@ -79,13 +79,13 @@ public class BlackJackControllerTest {
     }
 
     /**
-     * Test of embaralhamento method, of class BlackJackController.
+     * Test of embaralha method, of class BlackJackController.
      */
     @Test
-    public void testEmbaralhamento() {
-        System.out.println("embaralhamento");
+    public void testEmbaralha() {
+        System.out.println("embaralha");
         BlackJackController instance = new BlackJackController();
-        instance.embaralhamento();
+        instance.embaralha();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

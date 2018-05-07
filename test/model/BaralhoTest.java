@@ -101,8 +101,6 @@ public class BaralhoTest {
         long seed = 0L;
         Baralho instance = new Baralho();
         Stack expResult = null;
-        Stack result = instance.stackRandom(seed);
-        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

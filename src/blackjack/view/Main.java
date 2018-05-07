@@ -121,7 +121,7 @@ public class Main{
                     }
                     break;
                 case "7":
-                    BJController.embaralhamento();
+                    BJController.embaralha();
                     break;
             }        
         }while(!menuOpcao.equals("s"));
