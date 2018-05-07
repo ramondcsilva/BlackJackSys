@@ -115,7 +115,7 @@ public class LinkedList implements IList{
                 Node prox = n.getNext();
                 if(data.equals(prox.getData())){
                     n.setNext(prox.getNext());
-
+                    sizeList--;
                     return true;
                 }
             }

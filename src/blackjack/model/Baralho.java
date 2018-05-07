@@ -50,7 +50,7 @@ public class Baralho {
      */
 
 
-    public Carta pickRandom() {
+    public Carta pickRandom(){
         return (Carta) cartas.get(ThreadLocalRandom.current().nextInt(52));
     }
 

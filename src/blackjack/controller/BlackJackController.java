@@ -30,7 +30,7 @@ public class BlackJackController {
 
 
     public Object novaJogada() {
-        Object carta = cartas.getCartas().toRemoveStart();
+        Object carta = baralho.toRemoveStart();
         resto.push(carta);
         return carta;
     }
@@ -49,23 +49,38 @@ public class BlackJackController {
         baralho = cartas.getCartas();
     }
 
-    public void embaralha() {
-        /*   Stack n = cartas.stackRandom(34534);
-       LinkedList l = new LinkedList();
-       while(!n.isEmpty()){
-           Object data = n.pop();
-           l.addStart(data);
-       }
-       
-       baralho = l;
-         */
-    }
+//    public void embaralha(){
+//        System.out.println(cartas.getCartas().size());
+//        int i = cartas.getCartas().size();
+//        while(i>0){
+//            Carta c = cartas.pickRandom();
+//            cartas.getCartas().remove(c);
+//            embaralhamento.addLast(c);
+//            System.out.print(c+" ");
+//            System.out.println(cartas.getCartas().size());
+//            i--;
+//        }
+//        baralho = embaralhamento;
+//    }
 
+    public void embaralhamento(){
+        LinkedList embaralhamento = new LinkedList();
+        while(embaralhamento.size() < 52){
+            Carta c = cartas.pickRandom();
+            if(!embaralhamento.contains(c)){
+                embaralhamento.addLast(c);
+                System.out.println(c);
+            }
+        }
+        baralho = embaralhamento;
+    }
     public void verCartasRestantes() {
         Iterator iterator = baralho.iterator();
+        int i = 0;
         while (iterator.hasNext()) {
+            i++;
             Carta b = (Carta) iterator.next();
-            if ((b.getNumero() == 1)) {
+            if (i%13 == 0) {
                 System.out.println(b);
             } else {
                 System.out.print(b);
@@ -125,12 +140,8 @@ public class BlackJackController {
         }
     }
 
-    public LinkedList getBaralho() {
-        return baralho;
-    }
-
     public Object pushCarta() {
-        Object carta = cartas.getCartas().toRemoveStart();
+        Object carta = baralho.toRemoveStart();
         resto.push(carta);
         return carta;
     }
@@ -173,5 +184,9 @@ public class BlackJackController {
             }    
         }
         return null;
+    }
+    
+    public LinkedList getBaralho() {
+        return baralho;
     }
 }
