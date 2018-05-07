@@ -88,6 +88,7 @@ public class BlackJackController {
         while (i < array.length) {
             resgataCarta(array[i],ordenada);
             i++;
+            
         }
     }
 
