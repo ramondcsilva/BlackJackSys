@@ -20,8 +20,8 @@ public class Main{
             System.out.println("\nEscolha uma das opções:\n"
                             + "|1| - Listar Cartas\n"
                             + "|2| - Listar Cartas - Ordenado\n"
-                            + "|3| - Iniciar Partida\n"
-                            + "|4| - Placar\n"
+                            + "|3| - Remover Carta do Topo\n"
+                            + "|4| - Retornar todas cartas removidas\n"
                             + "|5| - Cadastro Jogador\n"
                             + "|6| - Remover Jogador\n"
                             + "|7| - Embaralhar\n"
@@ -121,7 +121,7 @@ public class Main{
                     }
                     break;
                 case "7":
-                    BJController.embaralha();
+                    BJController.embaralhamento();
                     break;
             }        
         }while(!menuOpcao.equals("s"));
