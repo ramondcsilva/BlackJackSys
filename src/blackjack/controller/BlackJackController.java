@@ -28,6 +28,7 @@ public class BlackJackController {
         this.resto = new Stack();
     }
 
+
     public Object novaJogada() {
         Object carta = cartas.getCartas().toRemoveStart();
         resto.push(carta);
@@ -156,8 +157,7 @@ public class BlackJackController {
                 System.out.println();
             }
             i--;
-        }
-
+        }  
         Carta rand = cartas.pickRandom(4);
         System.out.println("Randomica: " + rand.toString());
     }

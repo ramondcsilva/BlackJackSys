@@ -2,12 +2,15 @@ package model;
 
 import util.Stack;
 
+
 public class Partida {
+
     private Jogador[] jogador;
     private Stack monte;
     private Baralho baralho;
     private int rodada;
     private int ponto;
+
 
     public Partida() {
     }
@@ -17,6 +20,7 @@ public class Partida {
      * um baralho externo bem como configura o baralho interno
      * @param baralho o baralho a ser utilizado
      */
+
 
     public Partida(Baralho baralho) {
         this.baralho = baralho;
@@ -44,12 +48,15 @@ public class Partida {
     public void setPonto(int ponto) {
         this.ponto = ponto;
     }
+
     /**
      * Get the value of baralho
+
      * @return the value of baralho
      */
     public Baralho getBaralho() {
         return baralho;
+
     }
     /**
      * Set the value of baralho
@@ -74,10 +81,12 @@ public class Partida {
     }
     /**
      * Get the value of jogador
+
      * @return the value of jogador
      */
     public Jogador[] getJogador() {
         return jogador;
+
     }
     /**
      * Set the value of jogador
@@ -101,5 +110,7 @@ public class Partida {
      */
     public void setJogador(int index, Jogador jogador) {
         this.jogador[index] = jogador;
-    }
+
+    } 
+
 }

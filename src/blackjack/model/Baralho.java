@@ -1,11 +1,13 @@
 package model;
 
+
 import util.LinkedList;
 import util.Stack;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Baralho {
+
     private LinkedList cartas;
 
     public Baralho(LinkedList cartas) {
@@ -36,6 +38,7 @@ public class Baralho {
         for (int i = 0; i < 52; i = i + 13) {
             for (int j = 1; j <= 13; j++) {
                 Carta carta = new Carta(j, i);
+
                 cartas.addStart(carta);
             }
         }
@@ -46,6 +49,7 @@ public class Baralho {
      * @param seed numero a semear o randomico
      * @return uma carta aleatoria do baralho
      */
+
 
     public Carta pickRandom(long seed) {
         Random rand = new Random(seed);
@@ -62,6 +66,7 @@ public class Baralho {
      * @return pilha com cartas embaralhadas
      */
 
+
     public Stack stackRandom(long seed) {
         int[] rand = ThreadLocalRandom.current().ints(52, 0, 52).toArray();
         Carta[] arr = (Carta[]) cartas.toArray();
@@ -77,3 +82,4 @@ public class Baralho {
         return ret;
     }
 }
+

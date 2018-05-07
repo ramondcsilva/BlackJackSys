@@ -3,6 +3,7 @@ package model;
 import util.LinkedList;
 
 public class MaoDeCarta {
+
     private LinkedList cartas;
 
     public MaoDeCarta(LinkedList cartaNaMao) {
@@ -42,5 +43,6 @@ public class MaoDeCarta {
     public void clearCartas() {
         while(cartas.toRemoveLast() != null);
     }
+
 
 }

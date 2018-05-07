@@ -1,9 +1,12 @@
 package model;
 
 public class Carta {
+
+    
     private int numero;
     private int naipe;
     
+
     public Carta(int numero, int naipe) {
         this.numero = numero;
         this.naipe = naipe;
@@ -48,6 +51,7 @@ public class Carta {
 
     @Override
     public String toString() {
+
         String naipes, numeros;
         switch (this.naipe) {
             case 0:
@@ -84,3 +88,4 @@ public class Carta {
         return numeros+naipes;
     }
 }
+
