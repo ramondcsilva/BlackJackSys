@@ -23,11 +23,10 @@ public class BlackJackController {
     Stack resto;
 
     public BlackJackController() {
-        this.cartas = new Baralho(baralho);
         this.baralho = new LinkedList();
+        this.cartas = new Baralho(baralho);
         this.resto = new Stack();
     }
-
 
     public Object novaJogada() {
         Object carta = cartas.getCartas().toRemoveStart();
@@ -50,15 +49,7 @@ public class BlackJackController {
     }
 
     public void embaralha() {
-        /*   Stack n = cartas.stackRandom(34534);
-       LinkedList l = new LinkedList();
-       while(!n.isEmpty()){
-           Object data = n.pop();
-           l.addStart(data);
-       }
-       
-       baralho = l;
-         */
+        baralho = cartas.listRandom();
     }
 
     public void verCartasRestantes() {
@@ -157,7 +148,7 @@ public class BlackJackController {
                 System.out.println();
             }
             i--;
-        }  
+        }
         Carta rand = cartas.pickRandom();
         System.out.println("Randomica: " + rand.toString());
     }
