@@ -49,20 +49,6 @@ public class BlackJackController {
         baralho = cartas.getCartas();
     }
 
-//    public void embaralha(){
-//        System.out.println(cartas.getCartas().size());
-//        int i = cartas.getCartas().size();
-//        while(i>0){
-//            Carta c = cartas.pickRandom();
-//            cartas.getCartas().remove(c);
-//            embaralhamento.addLast(c);
-//            System.out.print(c+" ");
-//            System.out.println(cartas.getCartas().size());
-//            i--;
-//        }
-//        baralho = embaralhamento;
-//    }
-
     public void embaralhamento(){
         LinkedList embaralhamento = new LinkedList();
         while(embaralhamento.size() < 52){
