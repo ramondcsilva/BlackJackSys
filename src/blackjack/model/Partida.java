@@ -2,6 +2,10 @@ package model;
 
 import util.Stack;
 
+/**
+ *
+ * @author jaca
+ */
 public class Partida {
 
     private Jogador[] jogador;
@@ -10,6 +14,9 @@ public class Partida {
     private int rodada;
     private int ponto;
 
+    /**
+     *
+     */
     public Partida() {
     }
 
@@ -24,24 +31,52 @@ public class Partida {
         this.monte = this.baralho.stackRandom();
     }
 
+    /**
+     * Inicializa uma partida com identificadores de rodada, pontos e os Jogadores
+     * participantes.
+     * 
+     * @param rodada
+     * @param ponto
+     * @param jogador
+     */
     public Partida(int rodada, int ponto, Jogador[] jogador) {
         this.rodada = rodada;
         this.ponto = ponto;
         this.jogador = jogador;
     }
 
+    /**
+     * Captura o valor de Rodada
+     * 
+     * @return o valor de Rodada
+     */
     public int getRodada() {
         return rodada;
     }
 
+    /**
+     * Configura o novo valor de Rodada
+     * 
+     * @param rodada novo valor de Rodada
+     */
     public void setRodada(int rodada) {
         this.rodada = rodada;
     }
 
+    /**
+     * Captura o valor de Pontos da Partida
+     * 
+     * @return o valor de Pontos da Partida
+     */
     public int getPonto() {
         return ponto;
     }
 
+    /**
+     * Configura o valor dos Pontos da Partida
+     * 
+     * @param ponto novo valor dos Pontos da Partida
+     */
     public void setPonto(int ponto) {
         this.ponto = ponto;
     }

@@ -2,10 +2,18 @@ package model;
 
 import util.LinkedList;
 
+/**
+ *
+ * @author jaca
+ */
 public class MaoDeCarta {
 
     private LinkedList cartas;
 
+    /**
+     *
+     * @param cartaNaMao
+     */
     public MaoDeCarta(LinkedList cartaNaMao) {
         this.cartas = cartaNaMao;
     }
