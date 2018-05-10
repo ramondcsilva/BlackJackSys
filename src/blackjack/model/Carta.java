@@ -1,33 +1,62 @@
 package model;
 
+/**
+ *
+ * @author jaca
+ */
 public class Carta {
 
     
     private int numero;
     private int naipe;
     
-
+    /**
+     * 
+     * @param numero
+     * @param naipe
+     */
     public Carta(int numero, int naipe) {
         this.numero = numero;
         this.naipe = naipe;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNumero() {
         return numero;
     }
 
+    /**
+     *
+     * @param numero
+     */
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNaipe() {
         return naipe;
     }
 
+    /**
+     *
+     * @param naipe
+     */
     public void setNaipe(int naipe) {
         this.naipe = naipe;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -49,6 +78,12 @@ public class Carta {
         return true;
     }
 
+    /**
+     * Converte os atributos da carta em uma String, contendo a respectiva
+     * nuemração/letra, e naipe.
+     * 
+     * @return String concatenando os valores da carta
+     */
     @Override
     public String toString() {
 
