@@ -10,7 +10,6 @@ public class Partida {
 
     private Jogador[] jogador;
     private Stack monte;
-    private Baralho baralho;
     private int rodada;
     private int ponto;
 
@@ -27,8 +26,7 @@ public class Partida {
      * @param baralho o baralho a ser utilizado
      */
     public Partida(Baralho baralho) {
-        this.baralho = baralho;
-        this.monte = this.baralho.stackRandom();
+        this.monte = baralho.stackRandom();
     }
 
     /**
@@ -81,24 +79,6 @@ public class Partida {
         this.ponto = ponto;
     }
 
-    /**
-     * Get the value of baralho
-     *
-     * @return the value of baralho
-     */
-    public Baralho getBaralho() {
-        return baralho;
-
-    }
-
-    /**
-     * Set the value of baralho
-     *
-     * @param baralho new value of baralho
-     */
-    public void setBaralho(Baralho baralho) {
-        this.baralho = baralho;
-    }
 
     /**
      * Get the value of monte
