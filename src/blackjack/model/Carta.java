@@ -1,13 +1,24 @@
 package model;
 
+/**
+ *
+ * @author jaca
+ */
 public class Carta {
     private int numero;
     private int naipe;
+
+    
+    /**
+     * @param numero
+     * @param naipe
+     */
 
     public Carta(int numero, int naipe) {
         this.numero = numero;
         this.naipe = naipe;
     }
+
     /**
      * Pega o numero do objeto.
      * @return numero. 
@@ -15,6 +26,7 @@ public class Carta {
     public int getNumero() {
         return numero;
     }
+
     /**
      * Modifica o numero do objeto.
      * @param numero 
@@ -22,6 +34,7 @@ public class Carta {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+
     /**
      * Pega o naipe do objeto.
      * @return naipe.
@@ -29,6 +42,7 @@ public class Carta {
     public int getNaipe() {
         return naipe;
     }
+
     /**
      * Modifica o naipe do objeto.
      * @param naipe 
@@ -36,6 +50,7 @@ public class Carta {
     public void setNaipe(int naipe) {
         this.naipe = naipe;
     }
+
     /**
      * Compara objetos.
      * @param obj
@@ -61,9 +76,12 @@ public class Carta {
         }
         return true;
     }
+
+
     /**
-     *Ele troca a impressao do objeto por String de seus atributos. 
-     * @return String especifica do objeto.
+     * Converte os atributos da carta em uma String, contendo a respectiva
+     * nuemração/letra, e naipe.
+     * @return String concatenando os valores da carta
      */
     @Override
     public String toString() {

@@ -2,13 +2,17 @@ package model;
 
 import util.LinkedList;
 
+/**
+ *
+ * @author jaca
+ */
 public class MaoDeCarta {
     private LinkedList cartas;
 
     public MaoDeCarta() {
         this.cartas = new LinkedList();
     }
-
+  
     /**
      * Entrega a lista de cartas na mão do jogador a quem a mão de cartas
      * pertence

@@ -2,6 +2,10 @@ package model;
 
 import java.util.Objects;
 
+/**
+ *
+ * @author jaca
+ */
 public class Jogador{
     private String user;
     private String password;
@@ -30,20 +34,23 @@ public class Jogador{
     public void setUser(String user) {
         this.user = user;
     }
+
     /**
-     * Pega o password do objeto.
+     * Pega a senha do objeto.
      * @return naipe.
      */
     public String getPassword() {
         return password;
     }
+
     /**
-     * Modifica o password do objeto.
+     * Modifica o senha do objeto.
      * @param password 
      */
     public void setPassword(String password) {
         this.password = password;
     }
+
     /**
      * Pega a maoDeCarta do objeto.
      * @return naipe.
@@ -51,6 +58,7 @@ public class Jogador{
     public MaoDeCarta getMaoAtual() {
         return MaoAtual;
     }
+
     /**
      * Modifica o maoAtual do objeto.
      * @param MaoAtual 
@@ -58,6 +66,7 @@ public class Jogador{
     public void setMaoAtual(MaoDeCarta MaoAtual) {
         this.MaoAtual = MaoAtual;
     }
+
     /**
      * Pega o totalDaMao do objeto.
      * @return naipe.
@@ -65,6 +74,7 @@ public class Jogador{
     public int getTotalDaMao() {
         return totalDaMao;
     }
+
     /**
      * Modifica o totalDaMao do objeto.
      * @param totalMao
@@ -79,6 +89,7 @@ public class Jogador{
     public int getPontuacao() {
         return pontuacao;
     }
+
     /**
      * Modifica a pontuação do objeto.
      * @param pontuacao 
@@ -86,6 +97,7 @@ public class Jogador{
     public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
     }
+
     /**
      * Pega o partidasVencidas do objeto.
      * @return naipe.
@@ -100,6 +112,7 @@ public class Jogador{
     public void setPartidasVencidas(int partidasVencidas) {
         this.partidasVencidas = partidasVencidas;
     }
+
     /**
      * Compara objetos.
      * @param obj
