@@ -5,8 +5,8 @@ import util.LinkedList;
 public class MaoDeCarta {
     private LinkedList cartas;
 
-    public MaoDeCarta(LinkedList cartaNaMao) {
-        this.cartas = cartaNaMao;
+    public MaoDeCarta() {
+        this.cartas = new LinkedList();
     }
 
     /**
@@ -33,7 +33,7 @@ public class MaoDeCarta {
      * @param carta a ser adicionada à mão
      */
     public void addCarta(Carta carta) {
-        this.cartas.addStart(carta);
+        this.cartas.addLast(carta);
     }
 
     /**

@@ -10,23 +10,28 @@ public class Baralho {
     public Baralho(LinkedList cartas) {
         this.cartas = cartas;
     }
-
     public Baralho() {
         cartas = new LinkedList();
         fillBaralho();
     }
-
+    /**
+     * Pega a lista de cartas do objeto.
+     * @return lista de cartas.
+     */
     public LinkedList getCartas() {
         return cartas;
     }
-
+    /**
+     * Modifica a lista de cartas do objeto.
+     * @param cartas
+     */
     public void setCartas(LinkedList cartas) {
         this.cartas = cartas;
     }
 
     /**
      * Preenche o baralho com as cartas 52 cartas padrão, seus numeros e naipes,
-     * em ordem; Presume que a lista de cartas está inicializada. (TODO:
+     * em ordem. Presume que a lista de cartas está inicializada. (TODO:
      * Adicionar possivel try)
      */
     public final void fillBaralho() {
@@ -42,9 +47,9 @@ public class Baralho {
     /**
      * Escolhe uma carta aleatória baseada no numero fornecido pela
      * ThreadLocalRandom que gera uma série de numeros aleatórios a partir de
-     * valores internos da Thread
+     * valores internos da Thread.
      *
-     * @return uma carta aleatoria do baralho
+     * @return uma carta aleatoria do baralho.
      */
 
     public Carta pickRandom() {
@@ -55,9 +60,9 @@ public class Baralho {
      * Cria uma pilha com as cartas desse baralho embaralhadas, usa um método de
      * geração de lista de numeros aleatórios com o intervalo de indice das
      * cartas e troca as posicões das cartas baseando-se nessa sequencia de
-     * numeros
+     * numeros.
      * 
-     * @return array de objetos carta em ordem aleatória
+     * @return array de objetos carta em ordem aleatória.
      */
     public Object[] arrayRandom(){
         int[] rand = ThreadLocalRandom.current().ints(52, 0, 52).toArray();
@@ -74,9 +79,9 @@ public class Baralho {
      * Cria uma pilha com as cartas desse baralho embaralhadas, usa um método de
      * geração de lista de numeros aleatórios com o intervalo de indice das
      * cartas e troca as posicões das cartas baseando-se nessa sequencia de
-     * numeros
+     * numeros.
      *
-     * @return pilha com cartas embaralhadas
+     * @return pilha com cartas embaralhadas.
      */
     public Stack stackRandom() {
         Object[] arr = arrayRandom();
@@ -91,9 +96,9 @@ public class Baralho {
      * Cria uma lista com as cartas desse baralho embaralhadas, usa um método de
      * geração de lista de numeros aleatórios com o intervalo de indice das
      * cartas e troca as posicões das cartas baseando-se nessa sequencia de
-     * numeros
+     * numeros.
      * 
-     * @return lista com cartas embaralhadas
+     * @return lista com cartas embaralhadas.
      */
     public LinkedList listRandom() {
         Object[] arr = arrayRandom();

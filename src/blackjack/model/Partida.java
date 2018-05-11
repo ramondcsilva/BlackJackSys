@@ -10,23 +10,9 @@ public class Partida {
     private int ponto;
 
     public Partida() {
-    }
-
-    /**
-     * Instancia uma Partida com um monte composto de uma pilha embaralhada por
-     * um baralho externo bem como configura o baralho interno
-     *
-     * @param baralho o baralho a ser utilizado
-     */
-    public Partida(Baralho baralho) {
-        this.baralho = baralho;
-        this.monte = this.baralho.stackRandom();
-    }
-
-    public Partida(int rodada, int ponto, Jogador[] jogador) {
-        this.rodada = rodada;
-        this.ponto = ponto;
-        this.jogador = jogador;
+        this.rodada = 0;
+        this.ponto = 0;
+        this.jogador = new Jogador[5];
     }
 
     public int getRodada() {
@@ -89,7 +75,6 @@ public class Partida {
      */
     public Jogador[] getJogador() {
         return jogador;
-
     }
 
     /**

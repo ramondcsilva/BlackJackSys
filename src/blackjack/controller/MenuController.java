@@ -38,12 +38,23 @@ public class MenuController {
         return false;
     }
     
-    public void iniciarJogo(int quantidadeJogadores){
-        
-        
+    public void iniciarJogo(Jogador[] jogadores, int i){
+        Jogador[] jogador = new Jogador[i];
     }
 
     public LinkedList getJogadores() {
         return jogadores;
+    }
+    
+    public Jogador buscaJogador(String user){
+        Iterator iterator = jogadores.iterator();
+        
+        while(iterator.hasNext()){
+            Jogador jogadorBuscado = (Jogador) iterator.next();
+            if(jogadorBuscado.getUser().equals(user)){
+                return jogadorBuscado;
+            }
+        }
+        return null;
     }
 }

@@ -8,23 +8,39 @@ public class Carta {
         this.numero = numero;
         this.naipe = naipe;
     }
-
+    /**
+     * Pega o numero do objeto.
+     * @return numero. 
+     */
     public int getNumero() {
         return numero;
     }
-
+    /**
+     * Modifica o numero do objeto.
+     * @param numero 
+     */
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
+    /**
+     * Pega o naipe do objeto.
+     * @return naipe.
+     */
     public int getNaipe() {
         return naipe;
     }
-
+    /**
+     * Modifica o naipe do objeto.
+     * @param naipe 
+     */
     public void setNaipe(int naipe) {
         this.naipe = naipe;
     }
-
+    /**
+     * Compara objetos.
+     * @param obj
+     * @return Boolean.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -45,10 +61,12 @@ public class Carta {
         }
         return true;
     }
-
+    /**
+     *Ele troca a impressao do objeto por String de seus atributos. 
+     * @return String especifica do objeto.
+     */
     @Override
     public String toString() {
-
         String naipes, numeros;
         switch (this.naipe) {
             case 0:
