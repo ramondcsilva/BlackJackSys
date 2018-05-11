@@ -1,9 +1,6 @@
 package model;
 
-/**
- *
- * @author jaca
- */
+
 public class Carta {
 
     

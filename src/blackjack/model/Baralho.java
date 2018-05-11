@@ -4,10 +4,7 @@ import util.LinkedList;
 import util.Stack;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- *
- * @author jaca
- */
+
 public class Baralho {
 
     private LinkedList cartas;

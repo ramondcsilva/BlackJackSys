@@ -2,10 +2,6 @@ package model;
 
 import util.LinkedList;
 
-/**
- *
- * @author jaca
- */
 public class MaoDeCarta {
 
     private LinkedList cartas;

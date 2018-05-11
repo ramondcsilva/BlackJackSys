@@ -2,10 +2,6 @@ package model;
 
 import java.util.Objects;
 
-/**
- *
- * @author jaca
- */
 public class Jogador{
     private String user;
     private String password;
