@@ -2,10 +2,6 @@ package model;
 
 import java.util.Objects;
 
-/**
- *
- * @author jaca
- */
 public class Jogador{
     private String user;
     private String password;
@@ -22,14 +18,14 @@ public class Jogador{
     }
     /**
      * Pega o user do objeto.
-     * @return naipe.
+     * @return o nome do jogador.
      */    
     public String getUser() {
         return user;
     }
     /**
      * Modifica o user do objeto.
-     * @param user 
+     * @param o nome do jogador
      */
     public void setUser(String user) {
         this.user = user;
@@ -37,7 +33,7 @@ public class Jogador{
 
     /**
      * Pega a senha do objeto.
-     * @return naipe.
+     * @return a senha do jogador.
      */
     public String getPassword() {
         return password;
@@ -45,7 +41,7 @@ public class Jogador{
 
     /**
      * Modifica o senha do objeto.
-     * @param password 
+     * @param a nova senha do jogador
      */
     public void setPassword(String password) {
         this.password = password;
@@ -53,7 +49,7 @@ public class Jogador{
 
     /**
      * Pega a maoDeCarta do objeto.
-     * @return naipe.
+     * @return a mão de carta do jogador.
      */
     public MaoDeCarta getMaoAtual() {
         return MaoAtual;
@@ -61,30 +57,30 @@ public class Jogador{
 
     /**
      * Modifica o maoAtual do objeto.
-     * @param MaoAtual 
+     * @param a mão atual do jogador
      */
     public void setMaoAtual(MaoDeCarta MaoAtual) {
         this.MaoAtual = MaoAtual;
     }
 
     /**
-     * Pega o totalDaMao do objeto.
-     * @return naipe.
+     * Pega a pontuação total do jogador.
+     * @return a pontuação total do jogador
      */
     public int getTotalDaMao() {
         return totalDaMao;
     }
 
     /**
-     * Modifica o totalDaMao do objeto.
-     * @param totalMao
+     * Modifica a pontuação total do jogador.
+     * @param pontos a serem adicionados
      */
     public void setTotalDaMao(int totalMao) {
         this.totalDaMao = totalDaMao + totalMao;
     }
     /**
      * Pega o pontuação do objeto.
-     * @return naipe.
+     * @return a pontuação.
      */
     public int getPontuacao() {
         return pontuacao;
@@ -100,14 +96,14 @@ public class Jogador{
 
     /**
      * Pega o partidasVencidas do objeto.
-     * @return naipe.
+     * @return o numero de partidas vencidas.
      */
     public int getPartidasVencidas() {
         return partidasVencidas;
     }   
     /**
-     * Modifica a partidasVencidas do objeto.
-     * @param partidasVencidas 
+     * Modifica o numero de partidas vencidas do objeto.
+     * @param o numero de partidas vencidas
      */
     public void setPartidasVencidas(int partidasVencidas) {
         this.partidasVencidas = partidasVencidas;
@@ -140,4 +136,5 @@ public class Jogador{
     public String toString() {
         return user;
     }
+
 }

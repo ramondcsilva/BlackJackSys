@@ -2,10 +2,6 @@ package model;
 
 import util.Stack;
 
-/**
- *
- * @author jaca
- */
 public class Partida {
     private Jogador[] jogador;
     private Stack monte;

@@ -1,9 +1,6 @@
+
 package model;
 
-/**
- *
- * @author jaca
- */
 public class Croupier extends Jogador{
     private Carta cartaDoTopo;
     
