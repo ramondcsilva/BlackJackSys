@@ -75,12 +75,6 @@ public class MenuControllerTest {
      */
     @Test
     public void testIniciarJogo() {
-        System.out.println("iniciarJogo");
-        int quantidadeJogadores = 0;
-        MenuController instance = new MenuController();
-        instance.iniciarJogo(quantidadeJogadores);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**

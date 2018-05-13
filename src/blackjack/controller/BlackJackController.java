@@ -17,7 +17,6 @@ import util.LinkedList;
 import model.*;
 
 public class BlackJackController {
-
     Baralho cartas;
     LinkedList baralho;
     Stack resto;
@@ -28,12 +27,6 @@ public class BlackJackController {
         this.resto = new Stack();
     }
 
-    public Object novaJogada() {
-        Object carta = baralho.toRemoveStart();
-        resto.push(carta);
-        return carta;
-    }
-
     public void pararJogada() {
         if (!resto.isEmpty()) {
             while (resto.size() > 0) {
@@ -42,17 +35,23 @@ public class BlackJackController {
             }
         }
     }
-
+    /**
+     * Adiciona todas as cartas ao Baralho.
+     */
     public void adicionaCartas() {
         cartas = new Baralho();
         baralho = cartas.getCartas();
     }
 
-
+    /**
+     * Embaralha o baralho.
+     */
     public void embaralha() {
         baralho = cartas.listRandom();
     }
-
+    /**
+     * Lista as cartas do baralho a partir de seu iterator.
+     */
     public void verCartasRestantes() {
         Iterator iterator = baralho.iterator();
         int i = 0;
@@ -66,7 +65,11 @@ public class BlackJackController {
             }
         }
     }
-
+    /**
+     * Adiciona todo baralho em um vetor, ordenando com o QuickSort,
+     * imprimindo as cartas do baralho ordenadas a partir de seu identificador (Naipe+Numero)
+     *  resgatadas.
+     */
     public void verCartasRestantesOrdenadas() {
         LinkedList ordenada = baralho;
         int[] array = new int[baralho.size()];
@@ -86,11 +89,24 @@ public class BlackJackController {
         }
     }
 
-    public void placarGeral(Jogador vencedor) {
+    public void partidaGanha(Jogador vencedor) {
         int i = vencedor.getPontuacao();
         vencedor.setPontuacao(i + 50);
     }
-
+    
+    /**
+     * Metodo de ordenação QuickSort, Dividir para conquista
+     * , selecionando um pivot, e separa o conjunto de dados em	três	
+     * sub-conjuntos:  valores menores que o pivot,	
+     * , valores iguais ao pivot	
+     * , valores maiores que o pivot.
+     * , repetindo o mesmo procedimento nos demais	
+     * subconjuntos (exceto o de iguais).	
+     * QuickSort
+     * @param v
+     * @param esquerda
+     * @param direita 
+     */
     public static void quickSort(int v[], int esquerda, int direita) {
         int esq = esquerda;
         int dir = direita;
@@ -119,36 +135,36 @@ public class BlackJackController {
         }
     }
 
+    /**
+     * Pega a carta do topo do baralho.
+     * @return carta
+     */
     public Object pushCarta() {
         Object carta = baralho.toRemoveStart();
         resto.push(carta);
         return carta;
     }
-
-    public void reiniciarBaralho(Stack n) {
+    
+    /**
+     * Retorna todas cartas utilizadas do Stack para o baralho principal.
+     * @param n 
+     */
+    public void reiniciarBaralho(LinkedList n) {
         if (!n.isEmpty()) {
             while (n.size() > 0) {
-                Object m = n.pop();
+                Object m = n.toRemoveStart();
                 baralho.addLast(m);
             }
         }
     }
 
-    public void imprime() {
-        int i = 51;
-
-        while (i >= 0) {
-            Carta b = (Carta) cartas.getCartas().get(i);
-            System.out.print(b.toString() + " ");
-            if ((i % 13) == 0) {
-                System.out.println();
-            }
-            i--;
-        }
-        Carta rand = cartas.pickRandom();
-        System.out.println("Randomica: " + rand.toString());
-    }
-    
+    /**
+     * Procura um objeto carta a partir de seu identificador (Naipe+Numero),
+     * na LinkedList do parametro.
+     * @param i
+     * @param resgate
+     * @return carta encontrada.
+     */
     public Object resgataCarta(int i, LinkedList resgate){
         Iterator iterator = resgate.iterator();
         while (iterator.hasNext()) {
@@ -165,7 +181,66 @@ public class BlackJackController {
         return null;
     }
     
+    public int verificaValor(int numeroDaCarta, int numeroDaCarta2){
+        int valor = 0;
+        switch(numeroDaCarta){
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+                valor = 10;
+            break;
+        }
+        switch(numeroDaCarta2){
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+                valor = 10;
+            break;
+        }
+        if(numeroDaCarta != 10 && valor==10 || numeroDaCarta2 != 10 && valor==10){
+            switch(numeroDaCarta){
+                case 1:
+                    valor = 11;
+                    break;
+            }
+            switch(numeroDaCarta2){
+                case 1:
+                    valor = 11;
+                    break;
+            }
+        }
+        return valor;
+    }
+    public int transformaNumero(int numero){
+        int valor = numero;
+        switch(numero){
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+                valor = 10;
+            break;
+        }
+        return valor;
+    }
+    public boolean estouro(int totalpontos){
+        if(totalpontos > 21){
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Pega a LinkedList do BlackJackController.
+     * @return LinkedList do baralho.
+     */
     public LinkedList getBaralho() {
         return baralho;
+    }
+
+    public Stack getResto() {
+        return resto;
     }
 }

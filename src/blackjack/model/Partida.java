@@ -3,16 +3,15 @@ package model;
 import util.Stack;
 
 public class Partida {
-
     private Jogador[] jogador;
     private Stack monte;
     private int rodada;
     private int ponto;
 
-    /**
-     *
-     */
     public Partida() {
+        this.rodada = 0;
+        this.ponto = 0;
+        this.jogador = new Jogador[5];
     }
 
     /**
@@ -101,7 +100,6 @@ public class Partida {
      */
     public Jogador[] getJogador() {
         return jogador;
-
     }
 
     /**

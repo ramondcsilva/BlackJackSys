@@ -3,17 +3,12 @@ package model;
 import util.LinkedList;
 
 public class MaoDeCarta {
-
     private LinkedList cartas;
 
-    /**
-     *
-     * @param cartaNaMao
-     */
-    public MaoDeCarta(LinkedList cartaNaMao) {
-        this.cartas = cartaNaMao;
+    public MaoDeCarta() {
+        this.cartas = new LinkedList();
     }
-
+  
     /**
      * Entrega a lista de cartas na mão do jogador a quem a mão de cartas
      * pertence
@@ -38,7 +33,7 @@ public class MaoDeCarta {
      * @param carta a ser adicionada à mão
      */
     public void addCarta(Carta carta) {
-        this.cartas.addStart(carta);
+        this.cartas.addLast(carta);
     }
 
     /**

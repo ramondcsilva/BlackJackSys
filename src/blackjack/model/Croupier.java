@@ -1,19 +1,20 @@
+
 package model;
 
 public class Croupier extends Jogador{
     private Carta cartaDoTopo;
-
+    
     /**
-     *
-     * @return
+     * Pega uma carta do objeto.
+     * @return cartaDoTopo.
      */
     public Carta getCartaDoTopo() {
         return cartaDoTopo;
     }
 
     /**
-     *
-     * @param cartaDoTopo
+     * Modifica a carta do objeto.
+     * @param cartaDoTopo.
      */
     public void setCartaDoTopo(Carta cartaDoTopo) {
         this.cartaDoTopo = cartaDoTopo;

@@ -25,7 +25,12 @@ public class LinkedList implements IList{
             this.data = data;
         }
     }
-    
+    /**
+     * Verifica se a LinkedList contém um dado específico.
+     * @param data
+     * @return Boolean.
+     */
+    @Override
     public boolean contains(Object data){
        for(Node n = head;n != null; n = n.getNext()){
            if(n.getData() != null && n.getData().equals(data)){
@@ -34,17 +39,26 @@ public class LinkedList implements IList{
        }
        return false;
     }
-
+    /**
+     * Verifica se a LinkedList está vazia.
+     * @return Boolean.
+     */
     @Override
     public boolean isEmpty(){
        return head == null;
     }
-
+    /**
+     * Calcula o tamanho da LinkedList.
+     * @return tamanho da LinkedList.
+     */
     @Override
     public int size(){
         return sizeList;
     }
-
+    /**
+     * Adiciona um node no inicio da LinkedList.
+     * @param data 
+     */
     @Override
     public void addStart(Object data){
         if (isEmpty()){
@@ -57,7 +71,10 @@ public class LinkedList implements IList{
         }
         sizeList++;
     }
-    
+    /**
+     * Adiciona um node no final da LinkedList.
+     * @param data 
+     */
     @Override
     public void addLast(Object data){
         if(isEmpty()){
@@ -70,7 +87,11 @@ public class LinkedList implements IList{
         }
         sizeList++;
     }
-
+    /**
+     * Remove um node do inicio da LinkedList.
+     * @return dado removido.
+     */
+    @Override
     public Object toRemoveStart(){
         if(isEmpty()){
             return null;
@@ -82,7 +103,11 @@ public class LinkedList implements IList{
         return n.getData();
         }
     }
-
+    /**
+     * Remove um dado do final da LinkedList.
+     * @return dado removido.
+     */
+    @Override
     public Object toRemoveLast(){   
         Node aux;
         aux = head;
@@ -107,7 +132,11 @@ public class LinkedList implements IList{
             return data;
         }
     }
-    
+    /**
+     * Remove um dado específico da LinkedList.
+     * @param data
+     * @return Boolean.
+     */
     @Override
     public boolean remove(Object data){
         if(!isEmpty()){
@@ -122,7 +151,11 @@ public class LinkedList implements IList{
         }
         return false;
     }
-    
+    /**
+     *Procura um dado a partir de um index na LinkedList.
+     * @param index
+     * @return dado encontrado.
+     */
     @Override
     public Object get(int index){
         if(index >= 0 && index < size()){
@@ -142,8 +175,9 @@ public class LinkedList implements IList{
      * Metodo para criar um array com os objetos atuais de uma lista.
      * Cria um novo array com o tamanho da lista no momento da invocação desse método
      * e referencia cada objeto da lista neste array recem criado.
-     * @return array de objetos da lista;
+     * @return array de objetos da lista.
      */
+    @Override
     public Object[] toArray(){
         Object[] ret = new Object[sizeList];
         int i=0;
@@ -154,7 +188,10 @@ public class LinkedList implements IList{
         }
         return ret;
     }
-
+    /**
+     * Cria o iterator da LinkedList.
+     * @return iterator da LinkedList. 
+     */
     @Override
     public Iterator iterator(){
         ListIterator iteratorlist = new ListIterator(this.head);
@@ -167,12 +204,19 @@ public class LinkedList implements IList{
         ListIterator(Node head){
             current = head;
         }
-
+        
+        /**
+         * Verifica se tem um proximo node na LinkedList.
+         * @return Boolean. 
+         */
         @Override
         public boolean hasNext(){
             return  current != null;
         }
-
+        /**
+         * Pega o dado do proximo node na LinkedList.
+         * @return dado sucessor.
+         */
         @Override
         public Object next(){
             Object data = current.getData();
