@@ -10,6 +10,7 @@ public class Baralho {
     public Baralho(LinkedList cartas) {
         this.cartas = cartas;
     }
+    
     public Baralho() {
         cartas = new LinkedList();
         fillBaralho();

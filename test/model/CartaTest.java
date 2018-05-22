@@ -1,123 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-import org.junit.After;
-import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-/**
- *
- * @author ramon
- */
 public class CartaTest {
-    
-    public CartaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private Carta c;
     
     @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+    public void setUp() throws Exception {
+        c = new Carta(1,2);
     }
 
-    /**
-     * Test of getNumero method, of class Carta.
-     */
     @Test
-    public void testGetNumero() {
-        System.out.println("getNumero");
-        Carta instance = null;
-        int expResult = 0;
-        int result = instance.getNumero();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testBasic(){
+        assertEquals(1,c.getNumero());
+        assertEquals(2,c.getNaipe());
+        
+        c.setNumero(3);
+        c.setNaipe(4);
+        assertEquals(3,c.getNumero());
+        assertEquals(4,c.getNaipe());
+        
+        Carta temp = new Carta(3,4);
+        assertTrue(temp.equals(c));
+        
+        c.setNumero(7);
+        c.setNaipe(2);
+        assertFalse(temp.equals(c));
+        
+        c.setNaipe(4);
+        c.setNumero(3);
+        assertTrue(temp.equals(c));
     }
-
-    /**
-     * Test of setNumero method, of class Carta.
-     */
-    @Test
-    public void testSetNumero() {
-        System.out.println("setNumero");
-        int numero = 0;
-        Carta instance = null;
-        instance.setNumero(numero);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getNaipe method, of class Carta.
-     */
-    @Test
-    public void testGetNaipe() {
-        System.out.println("getNaipe");
-        Carta instance = null;
-        int expResult = 0;
-        int result = instance.getNaipe();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setNaipe method, of class Carta.
-     */
-    @Test
-    public void testSetNaipe() {
-        System.out.println("setNaipe");
-        int naipe = 0;
-        Carta instance = null;
-        instance.setNaipe(naipe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of equals method, of class Carta.
-     */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object obj = null;
-        Carta instance = null;
-        boolean expResult = false;
-        boolean result = instance.equals(obj);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of toString method, of class Carta.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Carta instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

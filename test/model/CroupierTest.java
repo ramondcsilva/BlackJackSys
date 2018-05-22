@@ -1,67 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author ramon
- */
 public class CroupierTest {
-    
-    public CroupierTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    private MaoDeCarta mao;
     
     @Before
     public void setUp() {
+        mao = new MaoDeCarta();
     }
     
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of getCartaDoTopo method, of class Croupier.
-     */
     @Test
-    public void testGetCartaDoTopo() {
-        System.out.println("getCartaDoTopo");
-        Croupier instance = new Croupier();
-        Carta expResult = null;
-        Carta result = instance.getCartaDoTopo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testBasic() {
+        Carta a = new Carta(3,4);
+        Carta b = new Carta(7,6);
+        Carta c = new Carta(4,5);
+        
+        assertTrue(mao.getCartas().isEmpty());
+        
+        mao.addCarta(a);
+        mao.addCarta(b);
+        assertEquals(mao.getCartas().size(),2);
+        assertTrue(mao.getCartas().contains(a));
+        assertTrue(mao.getCartas().contains(b));
+        assertFalse(mao.getCartas().contains(c));
+        assertFalse(mao.getCartas().isEmpty());
+        
+        mao.addCarta(c);
+        assertTrue(mao.getCartas().contains(c));
+        assertEquals(mao.getCartas().size(),3);
+        
+        MaoDeCarta temp = new MaoDeCarta();
+        
+        temp.addCarta(a);
+        temp.addCarta(b);
+        assertEquals(temp.getCartas().size(),2);
+        assertTrue(temp.getCartas().contains(a));
+        assertTrue(temp.getCartas().contains(b));
+        assertFalse(temp.getCartas().contains(c));
+        assertFalse(temp.getCartas().isEmpty());
+        
+        temp.addCarta(c);
+        assertTrue(temp.getCartas().contains(c));
+        assertEquals(temp.getCartas().size(),3);
+        mao = temp;
+        
+        assertTrue(mao.equals(temp));
     }
-
-    /**
-     * Test of setCartaDoTopo method, of class Croupier.
-     */
-    @Test
-    public void testSetCartaDoTopo() {
-        System.out.println("setCartaDoTopo");
-        Carta cartaDoTopo = null;
-        Croupier instance = new Croupier();
-        instance.setCartaDoTopo(cartaDoTopo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

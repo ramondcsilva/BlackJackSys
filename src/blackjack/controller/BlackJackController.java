@@ -27,14 +27,6 @@ public class BlackJackController {
         this.resto = new Stack();
     }
 
-    public void pararJogada() {
-        if (!resto.isEmpty()) {
-            while (resto.size() > 0) {
-                Object n = resto.pop();
-                baralho.addLast(n);
-            }
-        }
-    }
     /**
      * Adiciona todas as cartas ao Baralho.
      */
@@ -89,9 +81,9 @@ public class BlackJackController {
         }
     }
 
-    public void partidaGanha(Jogador vencedor) {
+    public void partidaGanha(Jogador vencedor, int vencedores) {
         int i = vencedor.getPontuacao();
-        vencedor.setPontuacao(i + 50);
+        vencedor.setPontuacao(i + (50/vencedores));
     }
     
     /**
@@ -181,6 +173,13 @@ public class BlackJackController {
         return null;
     }
     
+    /**
+     * Verifica o caso de pegar um Ás e um letra(Valete,Damas,Rei).
+     * Obtendo o valor 21.
+     * @param numeroDaCarta
+     * @param numeroDaCarta2
+     * @return pontuacao 21
+     */
     public int verificaValor(int numeroDaCarta, int numeroDaCarta2){
         int valor = 0;
         switch(numeroDaCarta){
@@ -213,6 +212,12 @@ public class BlackJackController {
         }
         return valor;
     }
+    
+    /**
+     * Transformas as cartas especiais para um mesmo valor.
+     * @param numero
+     * @return valor da carta. 
+     */
     public int transformaNumero(int numero){
         int valor = numero;
         switch(numero){
@@ -225,6 +230,12 @@ public class BlackJackController {
         }
         return valor;
     }
+    
+    /**
+     * Verifica se o total de pontos ultrapassou 21.
+     * @param totalpontos
+     * @return Boolean
+     */
     public boolean estouro(int totalpontos){
         if(totalpontos > 21){
             return true;
@@ -239,7 +250,11 @@ public class BlackJackController {
     public LinkedList getBaralho() {
         return baralho;
     }
-
+    
+    /**
+     * Pega o Stack resto.
+     * @return 
+     */
     public Stack getResto() {
         return resto;
     }

@@ -1,11 +1,7 @@
 package model;
 
-import util.Stack;
-
 public class Partida {
     private Jogador[] jogador;
-    private Stack monte;
-    private Baralho baralho;
     private int rodada;
     private int ponto;
 
@@ -29,43 +25,6 @@ public class Partida {
 
     public void setPonto(int ponto) {
         this.ponto = ponto;
-    }
-
-    /**
-     * Get the value of baralho
-     *
-     * @return the value of baralho
-     */
-    public Baralho getBaralho() {
-        return baralho;
-
-    }
-
-    /**
-     * Set the value of baralho
-     *
-     * @param baralho new value of baralho
-     */
-    public void setBaralho(Baralho baralho) {
-        this.baralho = baralho;
-    }
-
-    /**
-     * Get the value of monte
-     *
-     * @return the value of monte
-     */
-    public Stack getMonte() {
-        return monte;
-    }
-
-    /**
-     * Set the value of monte
-     *
-     * @param monte new value of monte
-     */
-    public void setMonte(Stack monte) {
-        this.monte = monte;
     }
 
     /**

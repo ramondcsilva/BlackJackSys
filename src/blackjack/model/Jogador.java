@@ -95,11 +95,12 @@ public class Jogador{
     }   
     /**
      * Modifica a partidasVencidas do objeto.
-     * @param partidasVencidas 
+     * @param partidaV
      */
-    public void setPartidasVencidas(int partidasVencidas) {
-        this.partidasVencidas = partidasVencidas;
+    public void setPartidasVencidas(int partidaV) {
+        this.partidasVencidas = partidasVencidas + partidaV;
     }
+    
     /**
      * Compara objetos.
      * @param obj
@@ -117,7 +118,22 @@ public class Jogador{
             return false;
         }
         final Jogador other = (Jogador) obj;
+        if (this.totalDaMao != other.totalDaMao) {
+            return false;
+        }
+        if (this.pontuacao != other.pontuacao) {
+            return false;
+        }
+        if (this.partidasVencidas != other.partidasVencidas) {
+            return false;
+        }
         if (!Objects.equals(this.user, other.user)) {
+            return false;
+        }
+        if (!Objects.equals(this.password, other.password)) {
+            return false;
+        }
+        if (!Objects.equals(this.MaoAtual, other.MaoAtual)) {
             return false;
         }
         return true;
