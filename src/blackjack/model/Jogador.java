@@ -18,74 +18,67 @@ public class Jogador{
     }
     /**
      * Pega o user do objeto.
-     * @return o nome do jogador.
+     * @return naipe.
      */    
     public String getUser() {
         return user;
     }
     /**
      * Modifica o user do objeto.
-     * @param o nome do jogador
+     * @param user 
      */
     public void setUser(String user) {
         this.user = user;
     }
-
     /**
-     * Pega a senha do objeto.
-     * @return a senha do jogador.
+     * Pega o password do objeto.
+     * @return naipe.
      */
     public String getPassword() {
         return password;
     }
-
     /**
-     * Modifica o senha do objeto.
-     * @param a nova senha do jogador
+     * Modifica o password do objeto.
+     * @param password 
      */
     public void setPassword(String password) {
         this.password = password;
     }
-
     /**
      * Pega a maoDeCarta do objeto.
-     * @return a mão de carta do jogador.
+     * @return naipe.
      */
     public MaoDeCarta getMaoAtual() {
         return MaoAtual;
     }
-
     /**
      * Modifica o maoAtual do objeto.
-     * @param a mão atual do jogador
+     * @param MaoAtual 
      */
     public void setMaoAtual(MaoDeCarta MaoAtual) {
         this.MaoAtual = MaoAtual;
     }
-
     /**
-     * Pega a pontuação total do jogador.
-     * @return a pontuação total do jogador
+     * Pega o totalDaMao do objeto.
+     * @return naipe.
      */
     public int getTotalDaMao() {
         return totalDaMao;
     }
-
     /**
-     * Modifica a pontuação total do jogador.
-     * @param pontos a serem adicionados
+     * Modifica o totalDaMao do objeto.
+     * @param totalMao
      */
     public void setTotalDaMao(int totalMao) {
         this.totalDaMao = totalDaMao + totalMao;
     }
     /**
      * Pega o pontuação do objeto.
-     * @return a pontuação.
+     * @return naipe.
      */
     public int getPontuacao() {
         return pontuacao;
     }
-
     /**
      * Modifica a pontuação do objeto.
      * @param pontuacao 
@@ -93,22 +86,21 @@ public class Jogador{
     public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
     }
-
     /**
      * Pega o partidasVencidas do objeto.
-     * @return o numero de partidas vencidas.
+     * @return naipe.
      */
     public int getPartidasVencidas() {
         return partidasVencidas;
     }   
     /**
-     * Modifica o numero de partidas vencidas do objeto.
-     * @param o numero de partidas vencidas
+     * Modifica a partidasVencidas do objeto.
+     * @param partidaV
      */
-    public void setPartidasVencidas(int partidasVencidas) {
-        this.partidasVencidas = partidasVencidas;
+    public void setPartidasVencidas(int partidaV) {
+        this.partidasVencidas = partidasVencidas + partidaV;
     }
-
+    
     /**
      * Compara objetos.
      * @param obj
@@ -126,7 +118,22 @@ public class Jogador{
             return false;
         }
         final Jogador other = (Jogador) obj;
+        if (this.totalDaMao != other.totalDaMao) {
+            return false;
+        }
+        if (this.pontuacao != other.pontuacao) {
+            return false;
+        }
+        if (this.partidasVencidas != other.partidasVencidas) {
+            return false;
+        }
         if (!Objects.equals(this.user, other.user)) {
+            return false;
+        }
+        if (!Objects.equals(this.password, other.password)) {
+            return false;
+        }
+        if (!Objects.equals(this.MaoAtual, other.MaoAtual)) {
             return false;
         }
         return true;
@@ -136,5 +143,4 @@ public class Jogador{
     public String toString() {
         return user;
     }
-
 }

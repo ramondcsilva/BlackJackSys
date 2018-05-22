@@ -5,10 +5,7 @@
  */
 package util;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,93 +14,94 @@ import static org.junit.Assert.*;
  * @author ramon
  */
 public class StackTest {
-    
-    public StackTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+    Stack pilha;
+    Object data1, data2, data3;
+
     @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+    public void setUp() throws Exception {
+        pilha = new Stack();
+        data1 = "Data1";
+        data2 = "Data2";
+        data3 = "Data3";
     }
 
-    /**
-     * Test of push method, of class Stack.
-     */
     @Test
     public void testPush() {
-        System.out.println("push");
-        Object data = null;
-        Stack instance = new Stack();
-        instance.push(data);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        pilha.push(data1);
+        pilha.push(data2);
+        
+        assertSame(data2,pilha.peek());
+        assertEquals(2,pilha.size());
+        
+        pilha.pop();
+        assertSame(data1,pilha.peek());
+        assertEquals(1,pilha.size());
+        
+        pilha.pop();
+        pilha.push(data3);
+        assertSame(data3,pilha.peek());
+        assertFalse(pilha.isEmpty());
+        
+        pilha.pop();
+        assertEquals(0,pilha.size());
+        assertTrue(pilha.isEmpty());
     }
 
-    /**
-     * Test of pop method, of class Stack.
-     */
     @Test
     public void testPop() {
-        System.out.println("pop");
-        Stack instance = new Stack();
-        Object expResult = null;
-        Object result = instance.pop();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        pilha.push(data1);
+        pilha.push(data3);
+        pilha.push(data2);
+        
+        assertSame(data2,pilha.pop());
+        assertEquals(2,pilha.size());
+        
+        assertSame(data3,pilha.pop());
+        assertEquals(1,pilha.size());
+        
+        assertSame(data1,pilha.pop());
+        assertTrue(pilha.isEmpty());
+        assertEquals(0,pilha.size());
     }
 
-    /**
-     * Test of peek method, of class Stack.
-     */
     @Test
     public void testPeek() {
-        System.out.println("peek");
-        Stack instance = new Stack();
-        Object expResult = null;
-        Object result = instance.peek();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        pilha.push(data1);
+        pilha.push(data2);
+        
+        assertSame(data2,pilha.peek());
+        assertEquals(2,pilha.size());
+        
+        pilha.pop();
+        assertSame(data1,pilha.peek());
+        assertEquals(1,pilha.size());
+        
+        pilha.pop();
+        assertSame(null,pilha.peek());
+        assertTrue(pilha.isEmpty());
     }
 
-    /**
-     * Test of size method, of class Stack.
-     */
     @Test
     public void testSize() {
-        System.out.println("size");
-        Stack instance = new Stack();
-        int expResult = 0;
-        int result = instance.size();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(0, pilha.size());
+
+        pilha.push(data1);
+        assertEquals(1, pilha.size());
+        
+        pilha.push(data2);
+        pilha.push(data3);
+        assertEquals(3, pilha.size());
+
+        pilha.pop();
+        assertEquals(2, pilha.size());
+
+        pilha.pop();
+        pilha.pop();
+        assertEquals(0, pilha.size());
     }
 
-    /**
-     * Test of isEmpty method, of class Stack.
-     */
     @Test
     public void testIsEmpty() {
-        System.out.println("isEmpty");
-        Stack instance = new Stack();
-        boolean expResult = false;
-        boolean result = instance.isEmpty();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+        assertTrue(pilha.isEmpty());
+   }
 }

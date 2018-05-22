@@ -139,7 +139,13 @@ public class LinkedList implements IList{
      */
     @Override
     public boolean remove(Object data){
-        if(!isEmpty()){
+        if(isEmpty()){
+            return false;
+        }else if(size() == 1){
+            head = tail = null;
+            sizeList--;
+            return true;        
+        }else if(!isEmpty()){
             for(Node n = head; n.getNext() != null; n = n.getNext()){
                 Node prox = n.getNext();
                 if(data.equals(prox.getData())){

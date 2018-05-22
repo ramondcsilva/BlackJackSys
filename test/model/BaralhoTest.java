@@ -5,104 +5,75 @@
  */
 package model;
 
-import org.junit.After;
-import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import util.LinkedList;
-import util.Stack;
 
-/**
- *
- * @author ramon
- */
 public class BaralhoTest {
-    
-    public BaralhoTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
+    private Baralho b;
+
     @Before
     public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+        b = new Baralho();
     }
 
-    /**
-     * Test of getCartas method, of class Baralho.
-     */
     @Test
-    public void testGetCartas() {
-        System.out.println("getCartas");
-        Baralho instance = new Baralho();
-        LinkedList expResult = null;
-        LinkedList result = instance.getCartas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    public void testBasic() {
 
-    /**
-     * Test of setCartas method, of class Baralho.
-     */
-    @Test
-    public void testSetCartas() {
-        System.out.println("setCartas");
-        LinkedList cartas = null;
-        Baralho instance = new Baralho();
-        instance.setCartas(cartas);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        assertFalse(b.getCartas().isEmpty());
+        assertEquals(b.getCartas().size(), 52);
 
-    /**
-     * Test of fillBaralho method, of class Baralho.
-     */
-    @Test
-    public void testFillBaralho() {
-        System.out.println("fillBaralho");
-        Baralho instance = new Baralho();
-        instance.fillBaralho();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        Carta c1 = new Carta(1, 0);
+        Carta c2 = new Carta(2, 0);
+        Carta cLast = new Carta(13, 39);
+        Carta test = new Carta(14, 52);
 
-    /**
-     * Test of pickRandom method, of class Baralho.
-     */
-    @Test
-    public void testPickRandom() {
-        System.out.println("pickRandom");
-        Baralho instance = new Baralho();
-        Carta expResult = null;
-        Carta result = instance.pickRandom();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        assertEquals(c1, b.getCartas().get(51));
+        assertEquals(c2, b.getCartas().get(50));
+        assertEquals(cLast, b.getCartas().get(0));
 
-    /**
-     * Test of stackRandom method, of class Baralho.
-     */
-    @Test
-    public void testStackRandom() {
-        System.out.println("stackRandom");
-        long seed = 0L;
-        Baralho instance = new Baralho();
-        Stack expResult = null;
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(b.getCartas().contains(c1));
+        assertFalse(b.getCartas().contains(test));
+        assertTrue(b.getCartas().contains(c2));
+        assertTrue(b.getCartas().contains(cLast));
+
+        LinkedList list = new LinkedList();
+        list.addLast(c1);
+        list.addLast(c2);
+        list.addLast(cLast);
+
+        Baralho temp = new Baralho();
+        temp.setCartas(list);
+        b.setCartas(list);
+        assertTrue(b.getCartas().equals(temp.getCartas()));
+
+        assertEquals(temp.getCartas().size(), 3);
+
+        assertEquals(c1, temp.getCartas().get(0));
+        assertEquals(c2, temp.getCartas().get(1));
+        assertEquals(cLast, temp.getCartas().get(2));
+
+        LinkedList n = new LinkedList();
+
+        temp.setCartas(n);
+        assertTrue(temp.getCartas().isEmpty());
+        temp.fillBaralho();
+        assertFalse(temp.getCartas().isEmpty());
+        assertEquals(temp.getCartas().size(), 52);
+
+        Carta c = temp.pickRandom();
+        assertFalse(temp.getCartas().get(0).equals(c));
+
+        temp.listRandom();
+        assertEquals(temp.getCartas().size(),52);
+
+        Object[] cartas = temp.arrayRandom();
+        assertTrue(temp.getCartas().contains(cartas[0]));
+        assertTrue(temp.getCartas().contains(cartas[51]));
+        assertEquals(cartas.length,temp.getCartas().size());
     }
-    
 }

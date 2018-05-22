@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Objects;
 import util.LinkedList;
 
 public class MaoDeCarta {
@@ -39,9 +40,26 @@ public class MaoDeCarta {
     /**
      * Limpa a mão de cartas do jogador;
      */
+    @SuppressWarnings("empty-statement")
     public void clearCartas() {
         while(cartas.toRemoveLast() != null);
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MaoDeCarta other = (MaoDeCarta) obj;
+        if (!Objects.equals(this.cartas, other.cartas)) {
+            return false;
+        }
+        return true;
+    }
 }
