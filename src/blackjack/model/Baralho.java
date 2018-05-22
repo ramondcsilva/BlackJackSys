@@ -4,17 +4,29 @@ import util.LinkedList;
 import util.Stack;
 import java.util.concurrent.ThreadLocalRandom;
 
+
 public class Baralho {
     private LinkedList cartas;
 
+    /**
+     * Inicializa a lista de cartas com uma lista externa
+     *
+     * @param cartas lista de cartas do baralho
+     */
     public Baralho(LinkedList cartas) {
         this.cartas = cartas;
     }
-    
+
+
+    /**
+     * Inicializa o baralho com as cartas padrão ordenadas
+     *
+     */
     public Baralho() {
         cartas = new LinkedList();
         fillBaralho();
     }
+
     /**
      * Pega a lista de cartas do objeto.
      * @return lista de cartas.
@@ -22,6 +34,7 @@ public class Baralho {
     public LinkedList getCartas() {
         return cartas;
     }
+
     /**
      * Modifica a lista de cartas do objeto.
      * @param cartas
@@ -52,11 +65,10 @@ public class Baralho {
      *
      * @return uma carta aleatoria do baralho.
      */
-
     public Carta pickRandom() {
         return (Carta) cartas.get(ThreadLocalRandom.current().nextInt(52));
     }
-    
+
     /**
      * Cria uma pilha com as cartas desse baralho embaralhadas, usa um método de
      * geração de lista de numeros aleatórios com o intervalo de indice das
@@ -64,8 +76,9 @@ public class Baralho {
      * numeros.
      * 
      * @return array de objetos carta em ordem aleatória.
+
      */
-    public Object[] arrayRandom(){
+    public Object[] arrayRandom() {
         int[] rand = ThreadLocalRandom.current().ints(52, 0, 52).toArray();
         Object[] arr = cartas.toArray();
         for (int i = 0; i < arr.length; i++) {
@@ -92,7 +105,7 @@ public class Baralho {
         }
         return ret;
     }
-    
+
     /**
      * Cria uma lista com as cartas desse baralho embaralhadas, usa um método de
      * geração de lista de numeros aleatórios com o intervalo de indice das
@@ -100,6 +113,7 @@ public class Baralho {
      * numeros.
      * 
      * @return lista com cartas embaralhadas.
+
      */
     public LinkedList listRandom() {
         Object[] arr = arrayRandom();
