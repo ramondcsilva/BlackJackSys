@@ -225,13 +225,4 @@ public class BlackJackControllerTest {
     public void testGetBaralho() {
         assertEquals(BJController.getBaralho(),BJController.baralho);
     }
-
-    /**
-     * Test of getResto method, of class BlackJackController.
-     */
-    @Test
-    public void testGetResto() {
-        assertEquals(BJController.getResto(),BJController.resto);
-    }
-    
 }
