@@ -18,7 +18,7 @@ public class MenuController {
         player.setUser(user);
         player.setPassword(password);
         
-        if(!jogadores.contains(player) && jogadores.size() <= 5){    
+        if(!jogadores.contains(player)){    
             jogadores.addLast(player);
             return player;
         }
@@ -38,14 +38,6 @@ public class MenuController {
         return false;
     }
     
-    public void iniciarJogo(Jogador[] jogadores, int i){
-        Jogador[] jogador = new Jogador[i];
-    }
-
-    public LinkedList getJogadores() {
-        return jogadores;
-    }
-    
     public Jogador buscaJogador(String user){
         Iterator iterator = jogadores.iterator();
         
@@ -56,5 +48,9 @@ public class MenuController {
             }
         }
         return null;
+    }
+    
+    public LinkedList getJogadores() {
+        return jogadores;
     }
 }

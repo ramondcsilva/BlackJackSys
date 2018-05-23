@@ -152,6 +152,10 @@ public class LinkedList implements IList{
                     n.setNext(prox.getNext());
                     sizeList--;
                     return true;
+                }else if(n.getData().equals(data)){
+                    head = head.getNext();
+                    sizeList--;
+                    return true;
                 }
             }
         }
