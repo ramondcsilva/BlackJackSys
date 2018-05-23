@@ -2,6 +2,7 @@ package model;
 
 public class Partida {
     private Jogador[] jogador;
+    private Stack monte;
     private int rodada;
     private int ponto;
 
@@ -10,13 +11,39 @@ public class Partida {
         this.ponto = 0;
         this.jogador = new Jogador[5];
     }
+
     /**
-     * Pega a rodada da Partida.
-     * @return rodada. 
+     * Instancia uma Partida com um monte composto de uma pilha embaralhada por
+     * um baralho externo bem como configura o baralho interno
+     *
+     * @param baralho o baralho a ser utilizado
+     */
+    public Partida(Baralho baralho) {
+        this.monte = baralho.stackRandom();
+    }
+
+    /**
+     * Inicializa uma partida com identificadores de rodada, pontos e os Jogadores
+     * participantes.
+     * 
+     * @param rodada
+     * @param ponto
+     * @param jogador
+     */
+    public Partida(int rodada, int ponto, Jogador[] jogador) {
+        this.rodada = rodada;
+        this.ponto = ponto;
+        this.jogador = jogador;
+    }
+
+    /**
+     * Captura o valor de Rodada
+     * @return o valor de Rodada
      */
     public int getRodada() {
         return rodada;
     }
+
     /**
      * Modifica a rodada da Partida.
      * @param rodada 
@@ -26,6 +53,7 @@ public class Partida {
     }
 
     /**
+
      * Pega o ponto da Partida.
      * @return ponto.
      */    
@@ -39,6 +67,25 @@ public class Partida {
      */
     public void setPonto(int ponto) {
         this.ponto = ponto;
+    }
+
+
+    /**
+     * Get the value of monte
+     *
+     * @return the value of monte
+     */
+    public Stack getMonte() {
+        return monte;
+    }
+
+    /**
+     * Set the value of monte
+     *
+     * @param monte new value of monte
+     */
+    public void setMonte(Stack monte) {
+        this.monte = monte;
     }
 
     /**
