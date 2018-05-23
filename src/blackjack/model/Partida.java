@@ -38,7 +38,6 @@ public class Partida {
 
     /**
      * Captura o valor de Rodada
-     * 
      * @return o valor de Rodada
      */
     public int getRodada() {
@@ -46,27 +45,25 @@ public class Partida {
     }
 
     /**
-     * Configura o novo valor de Rodada
-     * 
-     * @param rodada novo valor de Rodada
+     * Modifica a rodada da Partida.
+     * @param rodada 
      */
     public void setRodada(int rodada) {
         this.rodada = rodada;
     }
 
     /**
-     * Captura o valor de Pontos da Partida
-     * 
-     * @return o valor de Pontos da Partida
-     */
+
+     * Pega o ponto da Partida.
+     * @return ponto.
+     */    
     public int getPonto() {
         return ponto;
     }
-
+    
     /**
-     * Configura o valor dos Pontos da Partida
-     * 
-     * @param ponto novo valor dos Pontos da Partida
+     * Modifica o ponto da Partida.
+     * @param ponto 
      */
     public void setPonto(int ponto) {
         this.ponto = ponto;
@@ -92,42 +89,36 @@ public class Partida {
     }
 
     /**
-     * Get the value of jogador
-     *
-     * @return the value of jogador
+     * Pega o Jogador da partida.
+     * @return jogador.
      */
     public Jogador[] getJogador() {
         return jogador;
     }
 
     /**
-     * Set the value of jogador
-     *
-     * @param jogador new value of jogador
+     * Modifica o jogador da Partida.
+     * @param jogador
      */
     public void setJogador(Jogador[] jogador) {
         this.jogador = jogador;
     }
 
     /**
-     * Get the value of jogador at specified index
-     *
-     * @param index the index of jogador
-     * @return the value of jogador at specified index
+     * Modifica o jogador especifico da partida.
+     * @param index
+     * @return jogador.
      */
     public Jogador getJogador(int index) {
         return this.jogador[index];
     }
 
     /**
-     * Set the value of jogador at specified index.
-     *
-     * @param index the index of jogador
-     * @param jogador new value of jogador at specified index
+     * Modifica o jogador da partida a partir de um index.
+     * @param index
+     * @param jogador
      */
     public void setJogador(int index, Jogador jogador) {
         this.jogador[index] = jogador;
-
     }
-
 }

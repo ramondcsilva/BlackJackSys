@@ -336,7 +336,13 @@ public class Main {
             }
         } while (!menuOpcao.equals("s"));
     }
-
+    
+    /**
+     * Verifica o tamanho adequado para a string usando apenas um valor máximo.
+     * @param texto
+     * @param maximo
+     * @return Boolean. 
+     */
     public static boolean stringLimit(String texto, int maximo) {
         if (texto.length() > maximo) {
             System.out.println("Voce ultrapassou o maximo de caracteres.");
@@ -344,7 +350,14 @@ public class Main {
         }
         return true;
     }
-
+    
+    /**
+     * Verifica o tamanho adequado para a string, usando um mínimo e máximo de caracteres.
+     * @param texto
+     * @param minimo
+     * @param maximo
+     * @return String.
+     */
     public static boolean stringIdeal(String texto, int minimo, int maximo) {
         if (texto.length() < minimo) {
             System.out.println("Falta de caracteres.");
@@ -355,19 +368,39 @@ public class Main {
         }
         return true;
     }
-
+    
+    /**
+     * Retira caracteres inválidos, passando apenas Letras.
+     * @param text
+     * @return String.
+     */
     public static String replaceLetters(String text) {
         return text.replaceAll("[^A-z]", "");
     }
 
+    /**
+     * Retira caracteres inválidos, passando apenas 1 ou 2.
+     * @param text
+     * @return String.
+     */
     public static String replaceOpcao(String text) {
         return text.replaceAll("[^1-2]", "");
     }
-
+    
+    /**
+     * Retira caracteres inválidos, passando apenas Números.
+     * @param text
+     * @return String.
+     */
     public static String replaceInteger(String text) {
         return text.replaceAll("[^0-9]", "");
     }
 
+    /**
+     * Verifica se a String é null.
+     * @param text
+     * @return Boolean.
+     */
     public static boolean stringNull(String text) {
         if (!text.equals("") && !text.equals("'") && !text.equals("\\")) {
             if (text.equals("0")) {

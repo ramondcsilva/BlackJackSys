@@ -12,19 +12,16 @@
 package controller;
 
 import util.Iterator;
-import util.Stack;
 import util.LinkedList;
 import model.*;
 
 public class BlackJackController {
     Baralho cartas;
     LinkedList baralho;
-    Stack resto;
 
     public BlackJackController() {
         this.baralho = new LinkedList();
         this.cartas = new Baralho(baralho);
-        this.resto = new Stack();
     }
 
     /**
@@ -133,7 +130,6 @@ public class BlackJackController {
      */
     public Object pushCarta() {
         Object carta = baralho.toRemoveStart();
-        resto.push(carta);
         return carta;
     }
     
@@ -251,11 +247,4 @@ public class BlackJackController {
         return baralho;
     }
     
-    /**
-     * Pega o Stack resto.
-     * @return 
-     */
-    public Stack getResto() {
-        return resto;
-    }
 }
