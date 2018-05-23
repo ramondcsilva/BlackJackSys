@@ -10,60 +10,68 @@ public class Partida {
         this.ponto = 0;
         this.jogador = new Jogador[5];
     }
-
+    /**
+     * Pega a rodada da Partida.
+     * @return rodada. 
+     */
     public int getRodada() {
         return rodada;
     }
-
+    /**
+     * Modifica a rodada da Partida.
+     * @param rodada 
+     */
     public void setRodada(int rodada) {
         this.rodada = rodada;
     }
 
+    /**
+     * Pega o ponto da Partida.
+     * @return ponto.
+     */    
     public int getPonto() {
         return ponto;
     }
-
+    
+    /**
+     * Modifica o ponto da Partida.
+     * @param ponto 
+     */
     public void setPonto(int ponto) {
         this.ponto = ponto;
     }
 
     /**
-     * Get the value of jogador
-     *
-     * @return the value of jogador
+     * Pega o Jogador da partida.
+     * @return jogador.
      */
     public Jogador[] getJogador() {
         return jogador;
     }
 
     /**
-     * Set the value of jogador
-     *
-     * @param jogador new value of jogador
+     * Modifica o jogador da Partida.
+     * @param jogador
      */
     public void setJogador(Jogador[] jogador) {
         this.jogador = jogador;
     }
 
     /**
-     * Get the value of jogador at specified index
-     *
-     * @param index the index of jogador
-     * @return the value of jogador at specified index
+     * Modifica o jogador especifico da partida.
+     * @param index
+     * @return jogador.
      */
     public Jogador getJogador(int index) {
         return this.jogador[index];
     }
 
     /**
-     * Set the value of jogador at specified index.
-     *
-     * @param index the index of jogador
-     * @param jogador new value of jogador at specified index
+     * Modifica o jogador da partida a partir de um index.
+     * @param index
+     * @param jogador
      */
     public void setJogador(int index, Jogador jogador) {
         this.jogador[index] = jogador;
-
     }
-
 }

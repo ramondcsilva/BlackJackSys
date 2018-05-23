@@ -32,7 +32,7 @@ public class MenuController {
     
     /**
      * Busca pelo iterator da lista, um jogador com mesmo user e o remove, retornando true, caso não remova retorna false.
-     * @param user.
+     * @param user
      * @return Boolean.
      */
     public boolean removerJogador(String user){
@@ -50,7 +50,7 @@ public class MenuController {
     
     /**
      * Busca pelo iterator da lista, um jogador com mesmo user, caso não ache retorna null.
-     * @param user.
+     * @param user
      * @return jogadorBuscado.
      */
     public Jogador buscaJogador(String user){
