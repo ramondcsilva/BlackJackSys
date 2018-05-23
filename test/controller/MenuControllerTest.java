@@ -11,7 +11,10 @@ public class MenuControllerTest {
     
     @Before
     public void setUp() {
-        
+        j0 = new Jogador();
+        j1 = new Jogador();
+        j2 = new Jogador();
+        j3 = new Jogador();
     }
     
     /**
@@ -62,5 +65,10 @@ public class MenuControllerTest {
         
         assertTrue(menuController.removerJogador("primeiro"));
         assertFalse(menuController.jogadores.contains(j0));
+    }
+    
+    @Test
+    public void testGetJogador(){
+        assertEquals(menuController.getJogadores(),menuController.jogadores);
     }
 }
