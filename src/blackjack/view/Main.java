@@ -22,7 +22,12 @@ public class Main {
 
         BJController.adicionaCartas();
 
-        System.out.println("♠♥♦♣BLACKJACK♣♦♥♠");
+        System.out.print("♠");
+        System.out.print("\u001B[31m"+"♥♦"+"\u001B[0m");
+        System.out.print("♣ BLACKJACK ♣");
+        System.out.print("\u001B[31m"+"♦♥"+"\u001B[0m");
+        System.out.print("♠");
+
         do {
             System.out.println("\nEscolha uma das opções:\n"
                     + "|1| - Iniciar Jogo\n"
@@ -52,19 +57,19 @@ public class Main {
                                 verificaNull = stringNull(user);
                             } while (opcao.equals("") || verificaNull == false || verificaLimite == false && (opcao.equals("1") || opcao.equals("2")) || verificaLimite == true && opcao.equals("2"));
                             Jogador jogadorSelecionado = menuController.buscaJogador(user);
-                            if(jogadorContador < 5){
+                            if (jogadorContador < 5) {
                                 if (jogadorSelecionado == null) {
-                                    System.out.println("Erro na Busca.");
+                                    System.out.println("\u001B[31m"+"Erro na Busca."+"\u001B[0m");
                                     menuOpcao = "s";
                                 } else {
                                     System.out.println(jogadorSelecionado);
                                     partidas.setJogador(jogadorContador, jogadorSelecionado);
                                     jogadorContador++;
-                                    System.out.println("Jogador Encontrado.");
+                                    System.out.println("\u001B[32m"+"Jogador Encontrado."+"\u001B[0m");
                                 }
-                            }else{
-                                System.out.println("MAXIMO (5) DE JOGADORES PARA A PARTIDAD ATINGIDO.");
-                            }    
+                            } else {
+                                System.out.println("\u001B[31m"+"MAXIMO (5) DE JOGADORES PARA A PARTIDAD ATINGIDO."+"\u001B[0m");
+                            }
                             if (jogadorContador > 0 && jogadorContador < 5 && jogadorSelecionado == null || jogadorSelecionado != null) {
                                 System.out.println("Insira 1 ou 2 :\n"
                                         + "|1| - Iniciar Jogo\n"
@@ -74,8 +79,6 @@ public class Main {
                                 menuOpcao = Console.readString();
                             }
                         } while (!menuOpcao.equals("1") && partidas.getJogador(0) == null && !menuOpcao.equals("s") || menuOpcao.equals("2"));
-                        //VERIFICA JOGADOR ERRO DE JOGADOR BUSCADO, ESTA INICIANDO A PARTIDA
-                        //VERIFICA JGOADOR CADASTRADO E REMOVIDO DPS, NAO CONSEGUINDO CADASTRAR NOVAMENTE.
                         if (jogadorContador > 0 && menuOpcao.equals("1") && partidas.getJogador(0) != null) {
                             do {
                                 BJController.embaralha();
@@ -96,11 +99,11 @@ public class Main {
                                     Boolean n = false;
                                     if (jogador != null) {
                                         do {
-                                            System.out.println("\nVez do Jogador " + jogador.getUser() + "\n\n\n");
+                                            System.out.println("\nVez do Jogador " + jogador.getUser());
                                             System.out.println("Carta na mao.");
                                             for (int j = 0; j < jogador.getMaoAtual().getCartas().size(); j++) {
                                                 Carta c0 = (Carta) jogador.getMaoAtual().getCartas().get(j);
-                                                System.out.print(c0);
+                                                colorCard(c0);
                                                 if (n == false) {
                                                     int x = BJController.transformaNumero(c0.getNumero());
                                                     jogador.setTotalDaMao(x);
@@ -124,7 +127,7 @@ public class Main {
                                                 }
                                                 if (!verifica) {
                                                     do {
-                                                        System.out.println("\nEscolha uma das opções:\n"
+                                                        System.out.println("\n\n\n\nEscolha uma das opções:\n"
                                                                 + "|1| - Hit\n"
                                                                 + "|2| - Break\n");
                                                         System.out.println("O que deseja: ");
@@ -141,7 +144,7 @@ public class Main {
                                                             break;
                                                     }
                                                 } else {
-                                                    System.out.println("Seu total ultrapassou 21.");
+                                                    System.out.println("\u001B[31m"+"Seu total ultrapassou 21."+"\u001B[0m");
                                                     menuOpcao = "2";
                                                 }
                                             }
@@ -154,13 +157,13 @@ public class Main {
                                     mesa.getMaoAtual().addCarta(carta);
                                     int x = BJController.transformaNumero(carta.getNumero());
                                     mesa.setTotalDaMao(x);
-                                    System.out.print(carta);
+                                    colorCard(carta);
                                 }
                                 Boolean verificaCroupier = BJController.estouro(mesa.getTotalDaMao());
                                 int croupierGanhou = 0;
                                 int numeroVencedores = 0;
                                 int empate = 0;
-                                
+
                                 for (int i = 0; i < partidas.getJogador().length; i++) {
                                     Jogador jogador = partidas.getJogador(i);
                                     Jogador anterior = new Jogador();
@@ -174,16 +177,16 @@ public class Main {
                                         }
                                     }
                                 }
-                                if(empate == mesa.getTotalDaMao()){
+                                if (empate == mesa.getTotalDaMao()) {
                                     System.out.println("\nEmpate, ninguem ganha.");
                                     croupierGanhou++;
-                                }else if (verificaCroupier) {
-                                    System.out.println("\nCroupier ultrapassou 21. Todos ganham!");
+                                } else if (verificaCroupier) {
+                                    System.out.println("\u001B[32m"+"\nCroupier ultrapassou 21. Todos ganham!"+"\u001B[0m");
                                     for (Jogador jogador : partidas.getJogador()) {
                                         if (jogador != null) {
                                             croupierGanhou++;
-                                            System.out.println("\n\n" + jogador + " foi o vencedor ganhando 50 pontos.");
-                                            BJController.partidaGanha(jogador,jogadorContador);
+                                            System.out.println("\u001B[32m"+"\n\n" + jogador + " foi o vencedor ganhando 50 pontos."+"\u001B[0m");
+                                            BJController.partidaGanha(jogador, jogadorContador);
                                             jogador.setPartidasVencidas(1);
                                             jogador.getMaoAtual().clearCartas();
                                             jogador.setTotalDaMao(-jogador.getTotalDaMao());
@@ -194,15 +197,15 @@ public class Main {
                                         if (jogador != null) {
                                             if (jogador.getTotalDaMao() > mesa.getTotalDaMao()) {
                                                 if (jogador.getTotalDaMao() == vencedor) {
-                                                    System.out.println("\n\n" + jogador + " foi o vencedor.");
-                                                    BJController.partidaGanha(jogador,numeroVencedores);
+                                                    System.out.println("\u001B[32m"+"\n\n" + jogador + " foi o vencedor."+"\u001B[0m");
+                                                    BJController.partidaGanha(jogador, numeroVencedores);
                                                     jogador.setPartidasVencidas(1);
                                                     croupierGanhou++;
                                                 }
-                                            }else if(jogador.getTotalDaMao() == mesa.getTotalDaMao()){
+                                            } else if (jogador.getTotalDaMao() == mesa.getTotalDaMao()) {
                                                 if (jogador.getTotalDaMao() == vencedor) {
-                                                    System.out.println("\n\n" + jogador + " foi o vencedor.");
-                                                    BJController.partidaGanha(jogador,numeroVencedores);
+                                                    System.out.println("\u001B[32m"+"\n\n" + jogador + " foi o vencedor."+"\u001B[0m");
+                                                    BJController.partidaGanha(jogador, numeroVencedores);
                                                     jogador.setPartidasVencidas(1);
                                                     croupierGanhou++;
                                                 }
@@ -213,7 +216,7 @@ public class Main {
                                     }
                                 }
                                 if (croupierGanhou == 0) {
-                                    System.out.println("\nCroupier ganhou!");
+                                    System.out.println("\u001B[32m"+"\nCroupier ganhou!"+"\u001B[0m");
                                 }
                                 do {
                                     System.out.println("\nEscolha uma das opções:\n"
@@ -232,7 +235,7 @@ public class Main {
                             } while (!menuOpcao.equals("s"));
                         }
                     } else {
-                        System.out.println("Nao há jogadores cadastrados para jogar.");
+                        System.out.println("\u001B[31m"+"Nao há jogadores cadastrados para jogar."+"\u001B[0m");
                     }
                     menuOpcao = "voltar";
                     //Verificar igualdade de pontos dos jogadores.
@@ -271,10 +274,10 @@ public class Main {
 
                                     Jogador jogadorCadastrado = menuController.cadastrarJogador(user, password);
                                     if (jogadorCadastrado == null) {
-                                        System.out.println("Erro Cadastro.");
+                                        System.out.println("\u001B[31m"+"Erro Cadastro."+"\u001B[0m");
                                     } else {
                                         verificaCadastro++;
-                                        System.out.println("Cadastro Concluido.");
+                                        System.out.println("\u001B[32m"+"Cadastro concluído."+"\u001B[0m");
                                     }
                                     System.out.println("Insira 1 ou 2 :\n|1| - Menu\n|2| - Novo Jogador\nOpcao: ");
                                     menuEscolha = Console.readString();
@@ -298,18 +301,20 @@ public class Main {
                                             Boolean jogadorCadastrado = menuController.removerJogador(user);
 
                                             if (jogadorCadastrado == false) {
-                                                System.out.println("Jogador nao existe.");
+                                                System.out.println("\u001B[31m"+"Jogador não existe."+"\u001B[0m");
                                             } else {
-                                                System.out.println("Removido com sucesso");
+                                                System.out.println("\u001B[32m"+"Removido com sucesso."+"\u001B[0m");
                                                 verificaCadastro--;
                                             }
                                             System.out.println("Insira 1 ou 2 :\n|1| - Menu\n|2| - Remover outro Jogador\nOpcao: ");
                                             menuEscolha = Console.readString();
                                         } else {
-                                            System.out.println("Sem jogador para remover.");
+                                            System.out.println("\u001B[31m"+"Sem jogador para remover."+"\u001B[0m");
                                             menuEscolha = "1";
                                         }
                                     } while (!menuEscolha.equals("1"));
+                                }else{
+                                    System.out.println("\u001B[31m"+"Sem jogador para remover."+"\u001B[0m");
                                 }
                         }
                     } while (!menuOpcao.equals("s"));
@@ -331,28 +336,31 @@ public class Main {
                     }
                     n.close();
                     arquivo.close();
-                    System.out.println("Arquivo gerado.");
+                    System.out.println("\u001B[32m"+"Arquivo gerado."+"\u001B[0m");
                     break;
             }
         } while (!menuOpcao.equals("s"));
     }
-    
+
     /**
      * Verifica o tamanho adequado para a string usando apenas um valor máximo.
+     *
      * @param texto
      * @param maximo
-     * @return Boolean. 
+     * @return Boolean.
      */
     public static boolean stringLimit(String texto, int maximo) {
         if (texto.length() > maximo) {
-            System.out.println("Voce ultrapassou o maximo de caracteres.");
+            System.out.println("\u001B[31m"+"Voce ultrapassou o maximo de caracteres."+"\u001B[0m");
             return false;
         }
         return true;
     }
-    
+
     /**
-     * Verifica o tamanho adequado para a string, usando um mínimo e máximo de caracteres.
+     * Verifica o tamanho adequado para a string, usando um mínimo e máximo de
+     * caracteres.
+     *
      * @param texto
      * @param minimo
      * @param maximo
@@ -360,17 +368,18 @@ public class Main {
      */
     public static boolean stringIdeal(String texto, int minimo, int maximo) {
         if (texto.length() < minimo) {
-            System.out.println("Falta de caracteres.");
+            System.out.println("\u001B[31m"+"Falta de caracteres."+"\u001B[0m");
             return false;
         } else if ((texto.length() >= maximo)) {
-            System.out.println("Excesso de caracteres.");
+            System.out.println("\u001B[31m"+"Excesso de caracteres."+"\u001B[0m");
             return false;
         }
         return true;
     }
-    
+
     /**
      * Retira caracteres inválidos, passando apenas Letras.
+     *
      * @param text
      * @return String.
      */
@@ -380,15 +389,17 @@ public class Main {
 
     /**
      * Retira caracteres inválidos, passando apenas 1 ou 2.
+     *
      * @param text
      * @return String.
      */
     public static String replaceOpcao(String text) {
         return text.replaceAll("[^1-2]", "");
     }
-    
+
     /**
      * Retira caracteres inválidos, passando apenas Números.
+     *
      * @param text
      * @return String.
      */
@@ -398,19 +409,101 @@ public class Main {
 
     /**
      * Verifica se a String é null.
+     *
      * @param text
      * @return Boolean.
      */
     public static boolean stringNull(String text) {
         if (!text.equals("") && !text.equals("'") && !text.equals("\\")) {
             if (text.equals("0")) {
-                System.out.println("Voce digitou " + text + ". Invalido!");
+                System.out.println("\u001B[31m"+"Voce digitou " + text + ". Invalido!"+"\u001B[0m");
                 return false;
             } else if (text.equals("")) {
-                System.out.println("Voce não digitou nada.");
+                System.out.println("\u001B[31m"+"Voce não digitou nada."+"\u001B[0m");
                 return false;
             }
         }
         return true;
+    }
+    
+    public static void colorCard(Carta carta){
+        switch (carta.getNaipe()) {
+            case 0:
+                switch (carta.getNumero()) {
+                    case 1:
+                        System.out.print("A");
+                        break;
+                    case 11:
+                        System.out.print("J");
+                        break;
+                    case 12:
+                        System.out.print("Q");
+                        break;
+                    case 13:
+                        System.out.print("K");
+                        break;
+                    default:
+                        System.out.print(carta.getNumero());
+                }
+                System.out.print("♣");
+                break;
+            case 13:
+                switch (carta.getNumero()) {
+                    case 1:
+                        System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                        break;
+                    case 11:
+                        System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                        break;
+                    case 12:
+                        System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                        break;
+                    case 13:
+                        System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                        break;
+                    default:
+                        System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                }
+                System.out.print("\u001B[31m"+"♦"+"\u001B[0m");
+                break;
+            case 26:
+                switch (carta.getNumero()) {
+                    case 1:
+                        System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                        break;
+                    case 11:
+                        System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                        break;
+                    case 12:
+                        System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                        break;
+                    case 13:
+                        System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                        break;
+                    default:
+                        System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                }
+                System.out.print("\u001B[31m"+"♥"+"\u001B[0m");
+                break;
+            case 39:
+                switch (carta.getNumero()) {
+                    case 1:
+                        System.out.print("A");
+                        break;
+                    case 11:
+                        System.out.print("J");
+                        break;
+                    case 12:
+                        System.out.print("Q");
+                        break;
+                    case 13:
+                        System.out.print("K");
+                        break;
+                    default:
+                        System.out.print(carta.getNumero());
+                }
+                System.out.print("♠");
+                break;
+        }
     }
 }
