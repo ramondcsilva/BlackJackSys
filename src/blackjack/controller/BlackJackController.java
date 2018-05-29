@@ -46,11 +46,165 @@ public class BlackJackController {
         int i = 0;
         while (iterator.hasNext()) {
             i++;
-            Carta b = (Carta) iterator.next();
+            Carta carta = (Carta) iterator.next();
             if (i%13 == 0) {
-                System.out.println(b);
+                switch (carta.getNaipe()) {
+                    case 0:
+                        switch (carta.getNumero()) {
+                            case 1:
+                                System.out.print("A");
+                                break;
+                            case 11:
+                                System.out.print("J");
+                                break;
+                            case 12:
+                                System.out.print("Q");
+                                break;
+                            case 13:
+                                System.out.print("K");
+                                break;
+                            default:
+                                System.out.print(carta.getNumero());
+                        }
+                        System.out.println("♣");
+                        break;
+                    case 13:
+                        switch (carta.getNumero()) {
+                            case 1:
+                                System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                                break;
+                            case 11:
+                                System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                                break;
+                            case 12:
+                                System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                                break;
+                            case 13:
+                                System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                                break;
+                            default:
+                                System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                        }
+                        System.out.println("\u001B[31m"+"♦"+"\u001B[0m");
+                        break;
+                    case 26:
+                        switch (carta.getNumero()) {
+                            case 1:
+                                System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                                break;
+                            case 11:
+                                System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                                break;
+                            case 12:
+                                System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                                break;
+                            case 13:
+                                System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                                break;
+                            default:
+                                System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                        }
+                        System.out.println("\u001B[31m"+"♥"+"\u001B[0m");
+                        break;
+                    case 39:
+                        switch (carta.getNumero()) {
+                            case 1:
+                                System.out.print("A");
+                                break;
+                            case 11:
+                                System.out.print("J");
+                                break;
+                            case 12:
+                                System.out.print("Q");
+                                break;
+                            case 13:
+                                System.out.print("K");
+                                break;
+                            default:
+                                System.out.print(carta.getNumero());
+                        }
+                        System.out.println("♠");
+                        break;
+                }
             } else {
-                System.out.print(b);
+                switch (carta.getNaipe()) {
+                    case 0:
+                        switch (carta.getNumero()) {
+                            case 1:
+                                System.out.print("A");
+                                break;
+                            case 11:
+                                System.out.print("J");
+                                break;
+                            case 12:
+                                System.out.print("Q");
+                                break;
+                            case 13:
+                                System.out.print("K");
+                                break;
+                            default:
+                                System.out.print(carta.getNumero());
+                        }
+                        System.out.print("♣");
+                        break;
+                    case 13:
+                        switch (carta.getNumero()) {
+                            case 1:
+                                System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                                break;
+                            case 11:
+                                System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                                break;
+                            case 12:
+                                System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                                break;
+                            case 13:
+                                System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                                break;
+                            default:
+                                System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                        }
+                        System.out.print("\u001B[31m"+"♦"+"\u001B[0m");
+                        break;
+                    case 26:
+                        switch (carta.getNumero()) {
+                            case 1:
+                                System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                                break;
+                            case 11:
+                                System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                                break;
+                            case 12:
+                                System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                                break;
+                            case 13:
+                                System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                                break;
+                            default:
+                                System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                        }
+                        System.out.print("\u001B[31m"+"♥"+"\u001B[0m");
+                        break;
+                    case 39:
+                        switch (carta.getNumero()) {
+                            case 1:
+                                System.out.print("A");
+                                break;
+                            case 11:
+                                System.out.print("J");
+                                break;
+                            case 12:
+                                System.out.print("Q");
+                                break;
+                            case 13:
+                                System.out.print("K");
+                                break;
+                            default:
+                                System.out.print(carta.getNumero());
+                        }
+                        System.out.print("♠");
+                        break;
+                }
             }
         }
     }
@@ -156,14 +310,168 @@ public class BlackJackController {
     public Object resgataCarta(int i, LinkedList resgate){
         Iterator iterator = resgate.iterator();
         while (iterator.hasNext()) {
-            Carta z = (Carta) iterator.next();
-            if((z.getNaipe()+z.getNumero())== i){    
-                if ((z.getNumero() == 13)) {
-                    System.out.println(z);
+            Carta carta = (Carta) iterator.next();
+            if((carta.getNaipe()+carta.getNumero())== i){    
+                if ((carta.getNumero() == 13)) {
+                    switch (carta.getNaipe()) {
+                        case 0:
+                            switch (carta.getNumero()) {
+                                case 1:
+                                    System.out.print("A");
+                                    break;
+                                case 11:
+                                    System.out.print("J");
+                                    break;
+                                case 12:
+                                    System.out.print("Q");
+                                    break;
+                                case 13:
+                                    System.out.print("K");
+                                    break;
+                                default:
+                                    System.out.print(carta.getNumero());
+                            }
+                            System.out.println("♣");
+                            break;
+                        case 13:
+                            switch (carta.getNumero()) {
+                                case 1:
+                                    System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                                    break;
+                                case 11:
+                                    System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                                    break;
+                                case 12:
+                                    System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                                    break;
+                                case 13:
+                                    System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                                    break;
+                                default:
+                                    System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                            }
+                            System.out.println("\u001B[31m"+"♦"+"\u001B[0m");
+                            break;
+                        case 26:
+                            switch (carta.getNumero()) {
+                                case 1:
+                                    System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                                    break;
+                                case 11:
+                                    System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                                    break;
+                                case 12:
+                                    System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                                    break;
+                                case 13:
+                                    System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                                    break;
+                                default:
+                                    System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                            }
+                            System.out.println("\u001B[31m"+"♥"+"\u001B[0m");
+                            break;
+                        case 39:
+                            switch (carta.getNumero()) {
+                                case 1:
+                                    System.out.print("A");
+                                    break;
+                                case 11:
+                                    System.out.print("J");
+                                    break;
+                                case 12:
+                                    System.out.print("Q");
+                                    break;
+                                case 13:
+                                    System.out.print("K");
+                                    break;
+                                default:
+                                    System.out.print(carta.getNumero());
+                            }
+                            System.out.println("♠");
+                            break;
+                    }
                 } else {
-                    System.out.print(z);
+                    switch (carta.getNaipe()) {
+                        case 0:
+                            switch (carta.getNumero()) {
+                                case 1:
+                                    System.out.print("A");
+                                    break;
+                                case 11:
+                                    System.out.print("J");
+                                    break;
+                                case 12:
+                                    System.out.print("Q");
+                                    break;
+                                case 13:
+                                    System.out.print("K");
+                                    break;
+                                default:
+                                    System.out.print(carta.getNumero());
+                            }
+                            System.out.print("♣");
+                            break;
+                        case 13:
+                            switch (carta.getNumero()) {
+                                case 1:
+                                    System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                                    break;
+                                case 11:
+                                    System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                                    break;
+                                case 12:
+                                    System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                                    break;
+                                case 13:
+                                    System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                                    break;
+                                default:
+                                    System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                            }
+                            System.out.print("\u001B[31m"+"♦"+"\u001B[0m");
+                            break;
+                        case 26:
+                            switch (carta.getNumero()) {
+                                case 1:
+                                    System.out.print("\u001B[31m"+"A"+"\u001B[0m");
+                                    break;
+                                case 11:
+                                    System.out.print("\u001B[31m"+"J"+"\u001B[0m");
+                                    break;
+                                case 12:
+                                    System.out.print("\u001B[31m"+"Q"+"\u001B[0m");
+                                    break;
+                                case 13:
+                                    System.out.print("\u001B[31m"+"K"+"\u001B[0m");
+                                    break;
+                                default:
+                                    System.out.print("\u001B[31m"+carta.getNumero()+"\u001B[0m");
+                            }
+                            System.out.print("\u001B[31m"+"♥"+"\u001B[0m");
+                            break;
+                        case 39:
+                            switch (carta.getNumero()) {
+                                case 1:
+                                    System.out.print("A");
+                                    break;
+                                case 11:
+                                    System.out.print("J");
+                                    break;
+                                case 12:
+                                    System.out.print("Q");
+                                    break;
+                                case 13:
+                                    System.out.print("K");
+                                    break;
+                                default:
+                                    System.out.print(carta.getNumero());
+                            }
+                            System.out.print("♠");
+                            break;
+                    }
                 }
-                return z;
+                return carta;
             }    
         }
         return null;
