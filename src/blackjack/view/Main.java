@@ -32,7 +32,7 @@ public class Main {
             System.out.println("\nEscolha uma das opções:\n"
                     + "|1| - Iniciar Jogo\n"
                     + "|2| - Manutenção de Jogador\n"
-                    + "|3| - Placa Geral\n"
+                    + "|3| - Placar Geral\n"
                     + "|s| - Sair\n");
             System.out.println("O que deseja: ");
             menuOpcao = Console.readString();
