@@ -1,3 +1,14 @@
+/*  ******************************************************************************
+ *  Autor: Sergio e Ramon
+ *  Componente curricular: Módulo Integrador de Programação
+ *  Concluido em: 
+ *  Declaro que este código foi elaborado por mim de forma individual e não contém
+ *  nenhum trecho de código de outro colega ou de outro autor, tais como provindos
+ *  de livros e apostilas, e páginas ou documentos eletrônicos da Internet.
+ *  Qualquer trecho de código de outra autoria que não a minha está destacado com
+ *  uma citação para o autor e a fonte do código, e estou ciente que estes trechos
+ *  não serão considerados para fins de avaliação.
+ *  ******************************************************************************/
 package view;
 
 import util.Console;
@@ -32,7 +43,7 @@ public class Main {
             System.out.println("\nEscolha uma das opções:\n"
                     + "|1| - Iniciar Jogo\n"
                     + "|2| - Manutenção de Jogador\n"
-                    + "|3| - Placa Geral\n"
+                    + "|3| - Placar Geral\n"
                     + "|s| - Sair\n");
             System.out.println("O que deseja: ");
             menuOpcao = Console.readString();

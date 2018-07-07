@@ -25,6 +25,11 @@ public class LinkedList implements IList{
             this.data = data;
         }
     }
+    
+    public void empty(){
+        head = null;
+    }
+    
     /**
      * Verifica se a LinkedList contém um dado específico.
      * @param data
